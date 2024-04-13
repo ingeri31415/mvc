@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About page{% endblock %}
+
+{% block body %}
+    <h1>About this page</h1>
+    <div class=columns>
+    <p class=left> This page is created as a part of the mvc course at BTH. 
+        It explores PHP, Symfony and the concept of good code.
+        You can find the course repo at: 
+        <a href='https://github.com/dbwebb-se/mvc'>this link</a><br>
+	The git repo for this page you can find at:
+	<a href='https://github.com/ingeri31415/mvc'>this link</a><br>
+    </p>
+    <p class=right> This course is part of the progress to become a great webprogrammer
+    </p>
+    </div>
+<img src="{{ asset('img/plugg.png') }}"  alt='pluggbild' width='250'>
+{% endblock %}
+
