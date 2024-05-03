@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ingrid's page{% endblock %}
+
+{% block body %}
+    <h1>Here is your deck</h1>
+
+    <ul>
+
+    {% for card in deck %}
+        
+        {{ card }}
+        
+    {% endfor %}
+    </ul>
+
+
+   
+{% endblock %}
+

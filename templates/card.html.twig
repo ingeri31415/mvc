@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ingrid's page{% endblock %}
+
+{% block body %}
+    <h1>This is the cards page</h1>
+    <p> Here are some pages you can visit<p>
+	<a href="{{ path('deck') }}">Deck</a>
+    <a href="{{ path('shuffle') }}">Shuffle deck</a>
+    <a href="{{ path('draw') }}">Draw a card</a>
+    <a href="{{ path('draw_many', {num: 5}) }}">Draw 5 cards</a>
+
+   {{cardSuit}} {{cardValueString}} 
+   
+{% endblock %}

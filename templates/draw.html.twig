@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ingrid's page{% endblock %}
+
+{% block body %}
+    <h1>You have drawn the following card:</h1>
+    {{ drawnSuit }} {{ drawnValue }}
+    <p> Cards remaining: </p>
+    {{ remCards }}
+{% endblock %}

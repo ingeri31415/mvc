@@ -6,6 +6,11 @@ body {
 
 }
 
+.card {
+    font-size: 80px;
+    background-color: pink;
+}
+
 
 a {
    background-color: blue; 
@@ -64,4 +69,24 @@ footer {
     width: 100%;
     height: 40px;
     bottom: 0;
+}
+
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
 }
