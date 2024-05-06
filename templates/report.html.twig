@@ -31,7 +31,30 @@
     </p>
     
     <h2 id="kmom02">kmom02</h2>
-    <p></p>
+    <p>
+        Min lösning består av 4 klasser, ett arv och två kompositioner. Jag gjorde först kort med ascii symboler för
+        klöver, hjärter, spader och ruter och deras värden med A som ess, J som knekt, Q som dam och K som kung
+        och resterande som siffort. Sedan gjorde jag setValue() och setSuit för att få random kort men sedan detValue()
+        och detSuit() för att skapa specifika kort som sedan användes för att skapa en fullständig kortlek. Jag sammankopplade
+        en shuffle som går igenom alla positioner i arrayen och byter plats med ett random annan position i arrayen. Sedan skapade 
+        jag en sort() funktion som är en klassisk bubble sort för att sortera korten. Jag gjorde sedan en draw card och en draw card many
+        som drar kort från början av leken. För att ta bort kort ur leken ersattes dem med tomma kort. Sedan skapade jag 
+        Graphic card som har ascii symboler för hela kort. 
+
+        Förbättringar skulle vara att kunna ta bort kort från arrayen helt inte bara ersätta dem och sedan finns
+        det bättre sorteringsmetoder än bubble sort även fast det kankse inte spelar så stor roll när kortleken 
+        aldrig överstiger 52 kort som ska sorteras. 
+
+        Min TIL är att det går att kopiera in alla ascii symboler i VS code istället för att använda deras koder.
+
+        Arv betyder att en klass får alla egenskaper från klassen den ärver från och kan skapa egna egenskaper för 
+        att utöka den ursprungliga klassen. Komposition är en samling objekt från en annan klass som då hör ihop. Trait
+        är en samlig kod som kan användas i flera klasser för att undvika att duplicera kod. Interface är ett löfte om metoder
+        som klassen ska erbjuda. Interffacets metoder måste alltså finnas i klassen. 
+
+        Jag har kämpat med att få till klasser men framför allt metoder för att skapa den kod som behövs när man 
+        jobbar i ett namespace. Annars har det gått bra att jobba med Symfony. 
+    </p>
     
     <h2 id="kmom03">kmom03</h2>
     <p></p>

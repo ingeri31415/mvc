@@ -1,24 +1,26 @@
 <?php
+
 namespace App\Card;
 
-class CardHand extends Card {
+class CardHand extends Card
+{
     private $hand = [];
     private $number;
 
 
-   public function add(Card $card): void
+    public function add(Card $card): void
     {
         $this->hand[] = $card;
-    } 
+    }
 
     public function getStringArray(): array
     {
         $values = [];
         foreach ($this->hand as $card) {
             if ($card->getSuit()) {
-            $values[] = "[";
-            $values[] = $card->getPrint()[0];
-            $values[] = "]\t";
+                $values[] = "[";
+                $values[] = $card->getPrint()[0];
+                $values[] = "]\t";
             }
         }
         return $values;
@@ -38,8 +40,8 @@ class CardHand extends Card {
         $values = [];
         foreach ($this->hand as $card) {
             if ($card->getSuit()) {
-            $values[] = $card->getPrint();
-            
+                $values[] = $card->getPrint();
+
             }
         }
         return $values;

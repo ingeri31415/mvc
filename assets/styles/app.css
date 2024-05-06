@@ -11,6 +11,9 @@ body {
     background-color: pink;
 }
 
+.cards {
+    font-size: 70px;
+}
 
 a {
    background-color: blue; 

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Card;
 
 class CardGraphic extends Card
@@ -58,7 +59,7 @@ class CardGraphic extends Card
         '🃞',
 
 
-        
+
     ];
 
     public function __construct()
@@ -66,7 +67,7 @@ class CardGraphic extends Card
         parent::__construct();
     }
 
-    public function getPrint(): Array
+    public function getPrint(): array
     {
         return [$this->representation[$this->getValue() + ($this->getSuitIndex() * 13) - 1]];
     }

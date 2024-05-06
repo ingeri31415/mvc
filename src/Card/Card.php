@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Card;
 
@@ -55,13 +55,14 @@ class Card
 
     public function setSuit(): String
     {
-        $this->suit = $this->suits[random_int(1, 4)-1];
+        $this->suit = $this->suits[random_int(1, 4) - 1];
         return $this->suit;
     }
 
     public function setPrint(): String
     {
-        $this->print = $this->suit.$this->value;;
+        $this->print = $this->suit.$this->value;
+        ;
         return $this->suit;
     }
 
@@ -86,18 +87,18 @@ class Card
     public function getValue(): int
     {
         $value = $this->value;
-        if ($value == 'A'){
+        if ($value == 'A') {
             $value = 1;
-        } 
-        if ($value == 'J'){
+        }
+        if ($value == 'J') {
             $value = 11;
-        } 
-        if ($value == 'Q'){
+        }
+        if ($value == 'Q') {
             $value = 12;
-        } 
-        if ($value == 'K'){
+        }
+        if ($value == 'K') {
             $value = 13;
-        } 
+        }
         return $value;
     }
     public function getValueAsString(): string
@@ -112,23 +113,19 @@ class Card
 
     public function getSuitIndex(): int
     {
-        $suit =$this->suit;
-        if ($suit == "♠"){
+        $suit = $this->suit;
+        if ($suit == "♠") {
             $suit = 0;
-        }
-        else if ($suit == '♥'){
+        } elseif ($suit == '♥') {
             $suit = 1;
-        }
-        else if ($suit == '◆'){
+        } elseif ($suit == '◆') {
             $suit = 2;
-        }
-        else if ($suit == '♣'){
+        } elseif ($suit == '♣') {
             $suit = 3;
+        } else {
+            $suit = -1;
         }
-        else {
-            $suit=-1;
-        }
-        
+
         return $suit;
     }
     // public function getAsString(): string

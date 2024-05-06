@@ -5,14 +5,16 @@
 {% block body %}
     <h1>Here is your deck</h1>
 
+    <div class="cards">
     <ul>
-
-    {% for card in deck %}
-        
-        {{ card }}
-        
-    {% endfor %}
+        {% for card in deck %}
+            
+            {{ card }}
+            
+        {% endfor %}
     </ul>
+    </div>
+
 
 
    

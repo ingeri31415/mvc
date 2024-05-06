@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Dice\Dice;
@@ -21,8 +22,7 @@ class JsonCardController extends AbstractController
     public function deck(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
 
         $deck = $session->get("deck");
         $deck->sort();
@@ -40,8 +40,7 @@ class JsonCardController extends AbstractController
     public function shuffle(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
 
         $deck = $session->get("deck");
         $deck-> shuffle();
@@ -59,13 +58,12 @@ class JsonCardController extends AbstractController
     public function draw(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = $session -> get("deck");
         $remCards = $deck->getNumberCards();
-        $drawn = $deck->getCard(52-$remCards);
-        $deck->remove(new Card(), 52-$remCards);
-        
+        $drawn = $deck->getCard(52 - $remCards);
+        $deck->remove(new Card(), 52 - $remCards);
+
         //$drawnCard = $deck[0];
         //$deck.slice(1);
         $session->set("deck", $deck);
@@ -75,7 +73,7 @@ class JsonCardController extends AbstractController
             "remCards" => $updatedDeck->getNumberCards(),
         ];
 
-        
+
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
@@ -88,17 +86,16 @@ class JsonCardController extends AbstractController
         int $num,
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
 
         $hand = new CardHand();
         $deck = $session -> get("deck");
-       
+
         for ($i = 1; $i <= $num; $i++) {
 
             $remCards = $deck->getNumberCards();
-            $drawn = $deck->getCard(51-$remCards+1);
-            $deck->remove(new Card(), 51-$remCards+1);
+            $drawn = $deck->getCard(51 - $remCards + 1);
+            $deck->remove(new Card(), 51 - $remCards + 1);
 
             $hand->add($drawn);
             $session->set("hand", $hand);
@@ -126,6 +123,5 @@ class JsonCardController extends AbstractController
     }
 
 
-    
-}
 
+}

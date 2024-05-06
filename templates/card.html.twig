@@ -10,4 +10,17 @@
     <a href="{{ path('draw') }}">Draw a card</a>
     <a href="{{ path('draw_many', {num: 5}) }}">Draw 5 cards</a>
 
+    <h1> The class structure </h1>
+    <p> 
+        The class structure for the card functions are built up by four classes - Card, CardGraphic, 
+        CardHand and DeckOfCards. The Card class creates cards that have value, suit and a print which 
+        is the two of them combined for easy access. The CardGraphic class uses inheritance to create a 
+        graphic representation of the cards extending the two character(suit and value) representation that Card has. Instead
+        it uses one character of a playing card with the right suit and value. Then we have two compositions of cards
+        CardHand and DeckOfCards which are arrays of playing cards of different lengths. DeckOfCards has the
+        attirbute length to store how many cards are left in the deck and the hand has number which tells us 
+        how many cards the hand has. 
+    </p> 
+    <img src="{{ asset('img/UML.png') }}"  alt='pluggbild' width='750'>
+
 {% endblock %}
