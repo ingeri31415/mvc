@@ -6,6 +6,7 @@ class Card
 {
     protected $value;
     protected $suit;
+    protected $print;
 
     private $suits = [
          "♠",
@@ -56,6 +57,18 @@ class Card
     {
         $this->suit = $this->suits[random_int(1, 4)-1];
         return $this->suit;
+    }
+
+    public function setPrint(): String
+    {
+        $this->print = $this->suit.$this->value;;
+        return $this->suit;
+    }
+
+    public function getPrint(): array
+    {
+        $print = $this->print;
+        return [$print];
     }
 
     public function detValue($val): String

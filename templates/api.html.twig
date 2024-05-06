@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ingrid's page{% endblock %}
+
+{% block body %}
+    <h1> Json Routes </h1>
+    <h2> api/quotes </h2>
+    <p> Get one of three inspiring quotes </p>
+    <h2> api/deck </h2>
+    <p> you get to see the fully sorted deck</p>
+    <h2> api/deck/shuffle </h2>
+    <p> randomly shuffle your deck</p>
+    <h2> api/deck/draw </h2>
+    <p> draw a card from your deck</p>
+    <h2> api/deck/draw/:number </h2>
+    <p> draw :number amount of cards</p>
+
+
+<form method="post" action="">
+    <p>
+        <input type="submit" name="draw" value="Draw a card"
+            onClick="this.form.action='{{ path('api_draw') }}';"
+        >
+        <input type="submit" name="shuffle" value="shuffle"
+            onClick="this.form.action='{{ path('api_shuffle') }}';"
+        >
+        <input type="submit" name="deck" value="deck" 
+            onClick="this.form.action='{{ path('api_deck') }}';"
+        >
+
+        <input type="submit" name="api_draw_many" value="Draw 5 cards" 
+            onClick="this.form.action='{{ path('api_draw_many', {num: 5}) }}';"
+        >
+
+
+    </p>
+</form>
+
+<p> this is just so that the other text is visible</p>
+
+   
+{% endblock %}

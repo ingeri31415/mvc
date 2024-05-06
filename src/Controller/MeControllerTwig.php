@@ -68,11 +68,12 @@ class MeControllerTwig extends AbstractController
         ];
 
         //return new JsonResponse($data);
-        $response = new JsonResponse($data);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
+        // $response = new JsonResponse($data);
+        // $response->setEncodingOptions(
+        //     $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        // );
+        // return $response;
+        return $this->render('api.html.twig', $data);
     }
 
     #[Route("/api/quote", name: "api/quote")]

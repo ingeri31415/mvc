@@ -5,6 +5,7 @@ use App\Dice\Dice;
 use App\Dice\DiceGraphic;
 use App\Dice\DiceHand;
 use App\Card\Card;
+use App\Card\CardGraphic;
 use App\Card\DeckOfCards;
 use App\Card\CardHand;
 
@@ -23,21 +24,29 @@ class CardGameController extends AbstractController
         SessionInterface $session
     ): Response
     {
+        $deck=[];
+        if ($session->get("deck")){
+
+            $deck = $session->get("deck")->getStringArray();
+        }
+        
         $data = [
-            "session" => $session,
-
+            "deck" => $deck,
         ]; 
-
         return $this->render('session.html.twig', $data);
     }
     #[Route("/session/delete", name: "session_delete")]
-    public function session_delete(): Response
+    public function session_delete(
+        Request $request,
+        SessionInterface $session
+    ): Response
     {
+        $session->clear();
         $this->addFlash(
             'warning',
             'You have deleted everything in this session'
         );
-        return $this->render('session.html.twig');
+        return $this->redirectToRoute('session');
     }
 
     #[Route("/card", name: "card")]
@@ -60,7 +69,7 @@ class CardGameController extends AbstractController
         $deckie=[];
         $test = "bye";
         for ($i = 1; $i <= 52; $i++) {
-            $deck->add(new Card());
+            $deck->add(new CardGraphic());
             $card = new Card();
             $card -> setValue();
             $card -> setSuit();
@@ -73,6 +82,7 @@ class CardGameController extends AbstractController
         $test2 = $deck->getNumberCards();
         //$deck->getDeck();
         $session->set("deck", $deck);
+        
 
 
         $data = [
@@ -81,6 +91,7 @@ class CardGameController extends AbstractController
             "cardValueString" => $card->getValueAsString(),
             "cardSuit" => $card->getSuit(),
             "deck" => $deck->getStringArray(),
+            "print" => $card->getPrint(),
         ];
 
         return $this->render('card.html.twig', $data);
@@ -146,6 +157,7 @@ class CardGameController extends AbstractController
         $data = [
             "drawnSuit" => $drawn->GetSuit(),
             "drawnValue" => $drawn->GetValue(),
+            "drawnPrint" => $drawn->GetPrint()[0],
 
             "deck" => $session->get("deck", $deck),
             "remCards" => $updatedDeck->getNumberCards(),

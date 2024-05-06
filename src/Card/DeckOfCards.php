@@ -49,6 +49,7 @@ class DeckOfCards extends Card
              }
              $card->detValue($cardVal-1);
              $card->detSuit($cardSuit);
+             $card->setPrint();
              $cardVal++;
 
              //$this->length++;    
@@ -125,8 +126,8 @@ class DeckOfCards extends Card
         foreach ($this->deck as $card) {
             if ($card->getSuit()) {
             $values[] = "[";
-            $values[] = $card->getSuit();
-            $values[] = $card->getValueAsString();
+            $values[] = $card->getPrint()[0];
+
             $values[] = "]\t";
             }
         }
@@ -138,8 +139,8 @@ class DeckOfCards extends Card
         $values = [];
         foreach ($this->deck as $card) {
             if ($card->getSuit()) {
-            $values[] = $card->getSuit();
-            $values[] = $card->getValueAsString();
+            $values[] = $card->getPrint();
+            
             }
         }
         return $values;
@@ -148,7 +149,7 @@ class DeckOfCards extends Card
     
     public function shuffle(): void
     {
-        for ($i = 1; $i <= 52; $i++){
+        for ($i = 53-$this->length; $i <= 52; $i++){
             $last = 52-$i;
             $index = random_int(0, $last);
             $picked = $this->deck[$index];
@@ -212,5 +213,14 @@ class DeckOfCards extends Card
             }
         }
         
+    }
+
+    public function getPrint(): array
+    {
+        $values = [];
+        foreach ($this->deck as $card) {
+            $values[] = $this->suit.$this->value;
+        }
+        return $values;
     }
 }
