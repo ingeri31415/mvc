@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ingrid's game{% endblock %}
+
+{% block body %}
+    <h1>The Results</h1>
+
+    <p>
+        <ul>Your cards: 
+            {% for card in player_hand %}
+            
+            {{ card }}
+            
+            {% endfor %}</ul>
+        <ul>Your score: {{ player_score }}</ul>
+        <ul>Bank's cards:     
+            {% for card in bank_hand %}
+            
+            {{ card }}
+            
+            {% endfor %}</ul>
+        <ul>Bank's score: {{ bank_score }}</ul>
+    </p>
+
+    <p>
+        THE WINNER IS: {{ winner }}
+    </p>
+
+    <a href="{{ path('game') }}">Play again</a>
+
+{% endblock %}

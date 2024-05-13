@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ingrid's game{% endblock %}
+
+{% block body %}
+    <p>
+        <ul>You drew:  {{ drawn }}</ul>
+        <ul>Total score: {{ score }} </ul>
+    </p>
+  
+    <a href="{{ path('draw_card') }}">Draw card</a>
+    <a href="{{ path('end_game') }}">End game</a>
+
+{% endblock %}
+

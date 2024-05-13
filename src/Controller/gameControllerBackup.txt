@@ -1,0 +1,121 @@
+<!-- <?php
+
+namespace App\Controller;
+
+use App\Dice\Dice;
+use App\Dice\DiceGraphic;
+use App\Dice\DiceHand;
+use App\Card\Card;
+use App\Card\CardGraphic;
+use App\Card\DeckOfCards;
+use App\Card\CardHand;
+use App\Card\Player;
+
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Routing\Annotation\Route;
+
+class GameController extends AbstractController
+{
+    #[Route("/game", name: "game")]
+    public function game(
+        Request $request,
+        SessionInterface $session
+    ): Response
+    {
+        $deck = new DeckOfCards();
+        for ($i = 1; $i <= 52; $i++) {
+            $deck->add(new CardGraphic());
+        }
+        $deck->getDeck();
+        $deck-> shuffle();
+        $session->set("deck", $deck);
+        $player1 = new Player();
+        $bank = new Player();
+        $session->set("player1", $player1);
+        $session->set("bank", $bank);
+
+        $player_hand = new CardHand();
+        $session->set("player_hand", $player_hand);
+
+        $data = [
+            "bank" => $session->get("bank"),
+            "player1" => $session->get("player1"),
+        ];
+
+        return $this->render('game.html.twig', $data);
+    }
+
+    #[Route("/game_play", name: "game_play")]
+    public function game_play(
+        Request $request,
+        SessionInterface $session
+    ): Response
+    {
+        $data = [
+            "drawn" => "You've not drawn any cards yet",
+            "score" => $session->get("player1")->getScore(),
+        ];
+        return $this->render('game_play.html.twig', $data);
+    }
+
+    #[Route("/draw_card", name: "draw_card")]
+    public function draw_card(
+        Request $request,
+        SessionInterface $session
+    ): Response
+    {
+        $deck = $session->get("deck");
+        $remCards = $deck->getNumberCards();
+        $drawn = $deck->getCard(52 - $remCards);
+        $deck->remove(new Card(), 52 - $remCards);
+        $player1=$session->get("player1");
+        $player1->add_to_score($drawn->getValue());
+        $session->set("player1", $player1);
+        $hand = $session->get("player_hand");
+        $hand->add($drawn);
+        $session->set("player_hand", $hand);
+
+        if ($player1->getScore()>21){
+            return $this->redirectToRoute('end_game');
+        }
+
+        $data = [
+            "drawn" => $drawn->GetPrint()[0],
+            "score" => $session->get("player1")->getScore(),
+        ];
+        return $this->render('game_play.html.twig', $data);
+    }
+
+    #[Route("/end_game", name: "end_game")]
+    public function results(        
+        Request $request,
+        SessionInterface $session
+    ): Response
+    {
+        $hand = new CardHand();
+        $deck = $session -> get("deck");
+        $bank = $session->get("bank");
+
+        while($bank->getScore() < 17){
+            $remCards = $deck->getNumberCards();
+            $drawn = $deck->getCard(51 - $remCards + 1);
+            $deck->remove(new Card(), 51 - $remCards + 1);
+            $bank->add_to_score($drawn->getValue());
+            $hand->add($drawn);
+            $session->set("hand", $hand);
+        }
+        $data = [
+            "bank_score" => $session->get("bank")->getScore(),
+            "player_score" => $session->get("player1")->getScore(),
+            "bank_hand" => $session->get("hand")->getStringArray(),
+            "player_hand" => $session->get("player_hand")->getStringArray()
+        ];
+
+        return $this->render('results.html.twig', $data);
+    }
+} -->
