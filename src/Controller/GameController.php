@@ -129,4 +129,19 @@ class GameController extends AbstractController
 
         return $this->render('results.html.twig', $data);
     }
+
+    #[Route("/api/game", name: "api_game")]
+    public function api_game(
+        Request $request,
+        SessionInterface $session
+    ): Response
+    {
+        $data = [
+            "player_score" => $session->get("game")->getPlayer()->getScore(),
+            "bank_score" => $session->get("game")->getBank()->getScore(),
+        ];
+        return new JsonResponse(
+            $data
+        );
+    }
 }

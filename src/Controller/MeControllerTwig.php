@@ -63,7 +63,8 @@ class MeControllerTwig extends AbstractController
             'lucky' => 'get your lucky number',
             'api' => 'this page over routes',
             'api/deck' => 'see the deck fully sorted',
-            'api/shuffle' => 'a new shuffled deck'
+            'api/shuffle' => 'a new shuffled deck',
+            'api/game' => 'the game scores'
 
         ];
 
