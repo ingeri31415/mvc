@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ingrid's game{% endblock %}
+
+{% block body %}
+    <h1>Ingrid's game</h1>
+    <h2> The classes <h2>
+    <h3>Card</h3>
+    <p> Handles the individual cards and their values</p>
+    <h3>DeckOfCards</h3>
+    <p> Composition of cards to create a standard deck where you can draw and shuffle the cards </p>
+    <h3>CardHand</h3>
+    <p> Composition of cards to create a set of the deck </p>
+    <h3>Player</h3>
+    <p> A player which has a score in the game, can be used for both players and banks</p>
+    <h3>Game</h3>
+    <p> A composition of players which stores the bank and the player which has scores 
+        and can determine the winner</p>
+
+    <a href="{{ path('game_play') }}">Start game</a>
+    <h2> Pseudo code</h2>
+    <p> Class Game extends Player
+        $players[]
+        function GetBank()
+        return bank
+        function GetPlayer()
+        return Player
+        function winner()
+        if player_score > 21
+            winner = bank
+        if player_score <= bank_score
+            winner = bank
+        else 
+            winner = player
+    </p>
+
+    <p> 
+        Class Player
+        $score
+        function add_to_score(num)
+            return $score += num
+        function get_score
+            return $score
+    </p>
+
+{% endblock %}

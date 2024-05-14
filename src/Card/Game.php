@@ -32,10 +32,10 @@ class Game extends Player
         $bank_score = $this->players[0]->getScore();
         $player_score = $this->players[1]->getScore();
         $winner = "The bank";
-        if ( $player_score > $bank_score){
+        if ($player_score > $bank_score) {
             $winner = "You";
         }
-        if ($player_score > 21){
+        if ($player_score > 21) {
             $winner = "The bank";
         }
 

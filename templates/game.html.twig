@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Ingrid's game</h1>
-    <h2> The rules <h2>
+    <h2> The rules </h2>
     <p>
       The rules of the game are simple. Try to get as close to 21 points as possible without going over.
       If you go over, get less than the computer or get equal score to the computer you loose. 
@@ -13,6 +13,10 @@
     </p>
 
     <a href="{{ path('game_play') }}">Start game</a>
+
+    <h2> Game documentation </h2>
+    <p> You can find the documentation here:</p>
+    <a href="{{ path('doc') }}">Documentation</a>
 
 
 {% endblock %}

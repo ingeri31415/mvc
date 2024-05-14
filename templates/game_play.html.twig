@@ -3,10 +3,10 @@
 {% block title %}Ingrid's game{% endblock %}
 
 {% block body %}
-    <p>
+    <div class=cards>
         <ul>You drew:  {{ drawn }}</ul>
         <ul>Total score: {{ score }} </ul>
-    </p>
+    </div>
   
     <a href="{{ path('draw_card') }}">Draw card</a>
     <a href="{{ path('end_game') }}">End game</a>

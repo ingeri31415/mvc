@@ -26,13 +26,12 @@ class GameController extends AbstractController
     public function game(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = new DeckOfCards();
         for ($i = 1; $i <= 52; $i++) {
             $deck->add(new CardGraphic());
         }
-       
+
         $deck->getDeck();
         $deck-> shuffle();
         $session->set("deck", $deck);
@@ -46,7 +45,7 @@ class GameController extends AbstractController
         $session->set("game", $game);
         $player_hand = new CardHand();
         $session->set("player_hand", $player_hand);
-        
+
 
         $data = [
             "bank" => $session->get("game")->getBank(),
@@ -60,8 +59,7 @@ class GameController extends AbstractController
     public function game_play(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $data = [
             "drawn" => "You've not drawn any cards yet",
             "score" => $session->get("game")->getPlayer()->getScore(),
@@ -73,8 +71,7 @@ class GameController extends AbstractController
     public function draw_card(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deck = $session->get("deck");
         $remCards = $deck->getNumberCards();
         $drawn = $deck->getCard(52 - $remCards);
@@ -90,8 +87,16 @@ class GameController extends AbstractController
         $hand->add($drawn);
         $session->set("player_hand", $hand);
 
-        if ($game->getPlayer()->getScore()>21){
-            return $this->redirectToRoute('end_game');
+        if ($game->getPlayer()->getScore() > 21) {
+            //return $this->redirectToRoute('end_game');
+            $data = [
+                "bank_score" => "",
+                "player_score" => $session->get("game")->getPlayer()->getScore(),
+                "bank_hand" => "",
+                "player_hand" => $session->get("player_hand")->getStringArray(),
+                "winner" => $session->get("game")->winner(),
+            ];
+            return $this->render('results.html.twig', $data);
         }
 
         $data = [
@@ -102,16 +107,15 @@ class GameController extends AbstractController
     }
 
     #[Route("/end_game", name: "end_game")]
-    public function results(        
+    public function results(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $hand = new CardHand();
         $deck = $session -> get("deck");
         $game = $session->get("game");
 
-        while($game->getBank()->getScore() < 17){
+        while($game->getBank()->getScore() < 17) {
             $remCards = $deck->getNumberCards();
             $drawn = $deck->getCard(51 - $remCards + 1);
             $deck->remove(new Card(), 51 - $remCards + 1);
@@ -134,8 +138,7 @@ class GameController extends AbstractController
     public function api_game(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $data = [
             "player_score" => $session->get("game")->getPlayer()->getScore(),
             "bank_score" => $session->get("game")->getBank()->getScore(),
@@ -143,5 +146,11 @@ class GameController extends AbstractController
         return new JsonResponse(
             $data
         );
+    }
+
+    #[Route("/game/doc", name: "doc")]
+    public function game_doc(
+    ): Response {
+        return $this->render('doc.html.twig');
     }
 }

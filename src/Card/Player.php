@@ -13,7 +13,7 @@ class Player
 
     public function add_to_score($num): void
     {
-        $this->score=$this->score + $num ;
+        $this->score = $this->score + $num ;
     }
 
     public function getScore(): int
