@@ -24,7 +24,6 @@ class GameController extends AbstractController
 {
     #[Route("/game", name: "game")]
     public function game(
-        Request $request,
         SessionInterface $session
     ): Response {
         $deck = new DeckOfCards();
@@ -43,8 +42,8 @@ class GameController extends AbstractController
         $game->addPlayer(new Player());
         $game->addPlayer(new Player());
         $session->set("game", $game);
-        $player_hand = new CardHand();
-        $session->set("player_hand", $player_hand);
+        $playerHand = new CardHand();
+        $session->set("player_hand", $playerHand);
 
 
         $data = [
@@ -56,8 +55,7 @@ class GameController extends AbstractController
     }
 
     #[Route("/game_play", name: "game_play")]
-    public function game_play(
-        Request $request,
+    public function gamePlay(
         SessionInterface $session
     ): Response {
         $data = [
@@ -68,8 +66,7 @@ class GameController extends AbstractController
     }
 
     #[Route("/draw_card", name: "draw_card")]
-    public function draw_card(
-        Request $request,
+    public function drawCard(
         SessionInterface $session
     ): Response {
         $deck = $session->get("deck");
@@ -80,7 +77,7 @@ class GameController extends AbstractController
         // $player1->add_to_score($drawn->getValue());
         // $session->set("player1", $player1);
         $game = $session->get("game");
-        $game->getPlayer()->add_to_score($drawn->getValue());
+        $game->getPlayer()->addToScore($drawn->getValue());
         //$game -> $session->set("game");
         $session->set("game", $game);
         $hand = $session->get("player_hand");
@@ -108,7 +105,6 @@ class GameController extends AbstractController
 
     #[Route("/end_game", name: "end_game")]
     public function results(
-        Request $request,
         SessionInterface $session
     ): Response {
         $hand = new CardHand();
@@ -119,7 +115,7 @@ class GameController extends AbstractController
             $remCards = $deck->getNumberCards();
             $drawn = $deck->getCard(51 - $remCards + 1);
             $deck->remove(new Card(), 51 - $remCards + 1);
-            $game->getBank()->add_to_score($drawn->getValue());
+            $game->getBank()->addToScore($drawn->getValue());
             $hand->add($drawn);
             $session->set("hand", $hand);
         }
@@ -135,8 +131,7 @@ class GameController extends AbstractController
     }
 
     #[Route("/api/game", name: "api_game")]
-    public function api_game(
-        Request $request,
+    public function apiGame(
         SessionInterface $session
     ): Response {
         $data = [
@@ -149,7 +144,7 @@ class GameController extends AbstractController
     }
 
     #[Route("/game/doc", name: "doc")]
-    public function game_doc(
+    public function gameDoc(
     ): Response {
         return $this->render('doc.html.twig');
     }

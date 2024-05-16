@@ -20,7 +20,6 @@ class JsonCardController extends AbstractController
 {
     #[Route("/api/deck", name: "api_deck")]
     public function deck(
-        Request $request,
         SessionInterface $session
     ): Response {
 
@@ -38,7 +37,6 @@ class JsonCardController extends AbstractController
 
     #[Route("/api/deck/shuffle", name: "api_shuffle")]
     public function shuffle(
-        Request $request,
         SessionInterface $session
     ): Response {
 
@@ -56,7 +54,6 @@ class JsonCardController extends AbstractController
 
     #[Route("/api/deck/draw", name: "api_draw")]
     public function draw(
-        Request $request,
         SessionInterface $session
     ): Response {
         $deck = $session -> get("deck");
@@ -82,9 +79,8 @@ class JsonCardController extends AbstractController
     }
 
     #[Route("/api/deck/draw/{num<\d+>}", name: "api_draw_many")]
-    public function draw_many(
+    public function drawMany(
         int $num,
-        Request $request,
         SessionInterface $session
     ): Response {
 

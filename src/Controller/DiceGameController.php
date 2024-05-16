@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Dice\Dice;
 use App\Dice\DiceGraphic;
 use App\Dice\DiceHand;
+use Exception;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -70,7 +71,8 @@ class DiceGameController extends AbstractController
         for ($i = 1; $i <= $num; $i++) {
             if ($i % 2 === 1) {
                 $hand->add(new DiceGraphic());
-            } else {
+            }
+            if ($i % 2 === 0) {
                 $hand->add(new Dice());
             }
         }

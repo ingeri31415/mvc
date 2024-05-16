@@ -4,19 +4,19 @@ namespace App\Card;
 
 class Player
 {
-    protected $score;
+    protected int $score;
 
     public function __construct()
     {
         $this->score = 0;
     }
 
-    public function add_to_score($num): void
+    public function addToScore(int $num): void
     {
         $this->score = $this->score + $num ;
     }
 
-    public function getScore(): int
+    public function getScore(): String
     {
         return "{$this->score}";
     }

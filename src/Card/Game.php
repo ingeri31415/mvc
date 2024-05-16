@@ -4,7 +4,8 @@ namespace App\Card;
 
 class Game extends Player
 {
-    private $players = [];
+    /** @var array<Player> */
+    private array $players = [];
 
     // public function __construct()
     // {
@@ -17,6 +18,7 @@ class Game extends Player
         $this->players[] = $play;
     }
 
+    /** @return Player */
     public function getBank(): Player
     {
         return $this->players[0];
@@ -29,14 +31,18 @@ class Game extends Player
 
     public function winner(): string
     {
-        $bank_score = $this->players[0]->getScore();
-        $player_score = $this->players[1]->getScore();
+        $bankScore = $this->players[0]->getScore();
+        $playerScore = $this->players[1]->getScore();
         $winner = "The bank";
-        if ($player_score > $bank_score) {
+        if ($playerScore > $bankScore) {
             $winner = "You";
         }
-        if ($player_score > 21) {
+        if ($playerScore > 21) {
             $winner = "The bank";
+        }
+
+        if ($bankScore > 21) {
+            $winner = "You";
         }
 
         return $winner;

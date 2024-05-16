@@ -4,7 +4,10 @@ namespace App\Card;
 
 class DeckOfCards extends Card
 {
+    /** @var array<Card> */
     private $deck = [];
+
+    /** @var int */
     private $length = 0;
 
     // private $suits = [
@@ -21,7 +24,7 @@ class DeckOfCards extends Card
         $this->length++;
     }
 
-    public function remove(Card $card, $num): void
+    public function remove(Card $card, int $num): void
     {
         //$drawn = $this->deck[$num]->getValueAsString();
         $this->deck[$num] = $card;
@@ -30,7 +33,7 @@ class DeckOfCards extends Card
         //return $drawn;
     }
 
-    public function getCard($num): Card
+    public function getCard(int $num): Card
     {
         //$drawn = $this->deck[$num]->getValueAsString();
         $card = $this->deck[$num] ;
@@ -59,36 +62,35 @@ class DeckOfCards extends Card
     }
 
 
-    public function shuffleDeck(): array
-    {
+    // public function shuffleDeck(): array
+    // {
 
-        $tempDeck = $this->getDeck();
-        $newDeck = [];
 
-        for ($i = 0; $i < 52; $i++) {
+    //     $newDeck = [];
 
-            $NewDeck->add(new Card());
-        }
+    //     for ($i = 0; $i < 52; $i++) {
 
-        $cardsLeft = 52;
-        foreach ($newDeck as $card) {
+    //         $newDeck->add(new Card());
+    //     }
 
-            $num = random_int(0, $cardsLeft);
+    //     $cardsLeft = 52;
+    //     foreach ($newDeck as $card) {
 
-            $card->detValue();
-            $card->detSuit($cardSuit);
 
-            $cardsLeft--;
+    //         $card->detValue();
+    //         $card->detSuit($cardSuit);
 
-        }
+    //         $cardsLeft--;
 
-    }
+    //     }
+
+    // }
 
     public function drawCard(): Card
     {
 
         $drawnCard = $this->deck[0];
-        $this->deck[0] -> NewCard();
+        //$this->deck[0] -> NewCard();
         $this->length--;
 
         return $drawnCard;
@@ -100,6 +102,7 @@ class DeckOfCards extends Card
         return $this->length;
     }
 
+    /** @return array<string> */
     public function getValues(): array
     {
         $values = [];
@@ -108,20 +111,20 @@ class DeckOfCards extends Card
         }
         return $values;
     }
-
+    /** @return array<string> */
     public function getString(): array
     {
         $values = [];
         foreach ($this->deck as $card) {
             $val =  $card->getAsString();
-            $su = $card->getSuit();
+            $sui = $card->getSuit();
 
-            $cardstring =  $val + $su;
+            $cardstring =  $val + $sui;
             $values[] = $cardstring;
         }
         return $values;
     }
-
+    /** @return array<string> */
     public function getStringArray(): array
     {
         $values = [];
@@ -136,12 +139,13 @@ class DeckOfCards extends Card
         return $values;
     }
 
+    /** @return array<string> */
     public function getJsonStringArray(): array
     {
         $values = [];
         foreach ($this->deck as $card) {
             if ($card->getSuit()) {
-                $values[] = $card->getPrint();
+                $values[] = $card->getPrint()[0];
 
             }
         }
@@ -160,29 +164,29 @@ class DeckOfCards extends Card
         }
     }
 
-    public function sort_wrong(): void
-    {
-        $nextSuitIndex = $this->deck[0]->getSuitIndex();
-        $old = $this->deck[0];
-        for ($i = 0; $i <= 51; $i++) {
+    // public function sort_wrong(): void
+    // {
+    //     $nextSuitIndex = $this->deck[0]->getSuitIndex();
+    //     $old = $this->deck[0];
+    //     for ($i = 0; $i <= 51; $i++) {
 
-            if ($nextSuitIndex == 0) {
-                $nextPos = $old->getValue() - 1;
-            } elseif ($nextSuitIndex == 1) {
-                $nextPos = 13 + $old->getValue() - 1;
-            } elseif($nextSuitIndex == 2) {
-                $nextPos = 26 + $old->getValue() - 1;
-            } else {
-                $nextPos = 39 + $old->getValue() - 1;
-            }
-            $new = $this->deck[$nextPos];
-            $this->deck[$nextPos] = $old;
-            $nextSuitIndex = $new->getSuitIndex();
-            $old = $new;
+    //         if ($nextSuitIndex == 0) {
+    //             $nextPos = $old->getValue() - 1;
+    //         } elseif ($nextSuitIndex == 1) {
+    //             $nextPos = 13 + $old->getValue() - 1;
+    //         } elseif($nextSuitIndex == 2) {
+    //             $nextPos = 26 + $old->getValue() - 1;
+    //         } else {
+    //             $nextPos = 39 + $old->getValue() - 1;
+    //         }
+    //         $new = $this->deck[$nextPos];
+    //         $this->deck[$nextPos] = $old;
+    //         $nextSuitIndex = $new->getSuitIndex();
+    //         $old = $new;
 
-        }
+    //     }
 
-    }
+    // }
 
     public function sort(): void
     {
@@ -210,11 +214,12 @@ class DeckOfCards extends Card
 
     }
 
+    /** @return array<string> */
     public function getPrint(): array
     {
         $values = [];
         foreach ($this->deck as $card) {
-            $values[] = $this->suit.$this->value;
+            $values[] = $card->suit.$card->value;
         }
         return $values;
     }

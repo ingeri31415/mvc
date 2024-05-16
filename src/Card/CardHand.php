@@ -4,8 +4,8 @@ namespace App\Card;
 
 class CardHand extends Card
 {
+    /** @var array<Card> */
     private $hand = [];
-    private $number;
 
 
     public function add(Card $card): void
@@ -13,6 +13,7 @@ class CardHand extends Card
         $this->hand[] = $card;
     }
 
+    /** @return array<string> */
     public function getStringArray(): array
     {
         $values = [];
@@ -26,15 +27,17 @@ class CardHand extends Card
         return $values;
     }
 
+    /** @return array<string> */
     public function getPrint(): array
     {
         $values = [];
         foreach ($this->hand as $card) {
-            $values[] = $this->print;
+            $values[] = $card->print;
         }
         return $values;
     }
 
+    /** @return array<string> */
     public function getJsonStringArray(): array
     {
         $values = [];

@@ -19,7 +19,7 @@ class MeControllerTwig extends AbstractController
 
 
     #[Route('/', name: "/")]
-    public function hi(): Response
+    public function hello(): Response
     {
         /*     return new Response(
             '<html><body>I am Ingrid </body></html>'
@@ -28,7 +28,7 @@ class MeControllerTwig extends AbstractController
     }
 
     #[Route('/about', name: "about")]
-    public function About(): Response
+    public function about(): Response
     {
 
         /*     return new Response(
@@ -54,7 +54,6 @@ class MeControllerTwig extends AbstractController
     #[Route("/api", name: "api")]
     public function jsonNumber(): Response
     {
-        $number = random_int(0, 100);
 
         $data = [
             '/' => 'page about me',
@@ -63,7 +62,8 @@ class MeControllerTwig extends AbstractController
             'lucky' => 'get your lucky number',
             'api' => 'this page over routes',
             'api/deck' => 'see the deck fully sorted',
-            'api/shuffle' => 'a new shuffled deck',
+            'api/
+            ' => 'a new shuffled deck',
             'api/game' => 'the game scores'
 
         ];

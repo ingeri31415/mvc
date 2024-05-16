@@ -18,29 +18,31 @@
         and can determine the winner</p>
 
     <a href="{{ path('game_play') }}">Start game</a>
-    <h2> Pseudo code</h2>
-    <p> Class Game extends Player
-        $players[]
-        function GetBank()
-        return bank
-        function GetPlayer()
-        return Player
-        function winner()
-        if player_score > 21
-            winner = bank
-        if player_score <= bank_score
-            winner = bank
-        else 
-            winner = player
+    <h2> Pseudo code over the classes</h2>
+    <p> Class Game extends Player <br>
+        $players[] <br><br>
+        function GetBank() <br>
+        return bank <br> <br>
+        function GetPlayer() <br>
+         return Player <br> <br>
+        function winner() <br>
+        <pre>   if player_score > 21: <br>
+                winner = bank <br>
+            if player_score <= bank_score <br>
+                winner = bank <br>
+            else <br>
+                winner = player <br>
+        </pre>
     </p>
 
     <p> 
-        Class Player
-        $score
-        function add_to_score(num)
-            return $score += num
-        function get_score
-            return $score
+        Class Player <br>
+        $score <br><br>
+        function add_to_score(num) <br>
+            return $score += num <br><br>
+        function get_score <br>
+             return $score <br>
     </p>
-
+<h2> Flow chart over the routes </h2>
+    <img src="{{ asset('img/IMG_0254.jpg') }}"  alt='flowchart' width=750>
 {% endblock %}

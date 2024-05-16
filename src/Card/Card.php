@@ -4,11 +4,12 @@ namespace App\Card;
 
 class Card
 {
-    protected $value;
-    protected $suit;
-    protected $print;
+    protected string $value;
+    protected string $suit;
+    protected string $print;
 
-    private $suits = [
+    /** @var array<string> */
+    private array $suits = [
          "♠",
          '♥',
          '◆',
@@ -16,7 +17,8 @@ class Card
 
     ];
 
-    private $vals = [
+    /** @var array<string> */
+    private array $vals = [
         'A',
         '2',
         '3',
@@ -43,8 +45,8 @@ class Card
 
     public function __construct()
     {
-        $this->value = null;
-        $this->suit = null;
+        $this->value = "";
+        $this->suit = "";
     }
 
     public function setValue(): string
@@ -62,25 +64,30 @@ class Card
     public function setPrint(): String
     {
         $this->print = $this->suit.$this->value;
-        ;
+
         return $this->suit;
     }
-
+    /** @return array<string> */
     public function getPrint(): array
     {
         $print = $this->print;
         return [$print];
     }
 
+    /**
+     * @param int $val
+     */
     public function detValue($val): String
     {
         $this->value = $this->vals[$val];
         return $this->value;
     }
-
-    public function detSuit($su): String
+    /**
+     * @param int $thesuit
+     */
+    public function detSuit($thesuit): String
     {
-        $this->suit = $this->suits[$su];
+        $this->suit = $this->suits[$thesuit];
         return $this->suit;
     }
 
@@ -115,18 +122,19 @@ class Card
     {
         $suit = $this->suit;
         if ($suit == "♠") {
-            $suit = 0;
-        } elseif ($suit == '♥') {
-            $suit = 1;
-        } elseif ($suit == '◆') {
-            $suit = 2;
-        } elseif ($suit == '♣') {
-            $suit = 3;
-        } else {
-            $suit = -1;
+            return 0;
+        }
+        if ($suit == '♥') {
+            return 1;
+        }
+        if ($suit == '◆') {
+            return 2;
+        }
+        if ($suit == '♣') {
+            return 3;
         }
 
-        return $suit;
+        return -1;
     }
     // public function getAsString(): string
     // {

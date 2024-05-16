@@ -21,7 +21,6 @@ class CardGameController extends AbstractController
 {
     #[Route("/session", name: "session")]
     public function home(
-        Request $request,
         SessionInterface $session
     ): Response {
         $deck = [];
@@ -36,8 +35,7 @@ class CardGameController extends AbstractController
         return $this->render('session.html.twig', $data);
     }
     #[Route("/session/delete", name: "session_delete")]
-    public function session_delete(
-        Request $request,
+    public function sessionDelete(
         SessionInterface $session
     ): Response {
         $session->clear();
@@ -50,7 +48,6 @@ class CardGameController extends AbstractController
 
     #[Route("/card", name: "card")]
     public function card(
-        Request $request,
         SessionInterface $session
     ): Response {
         $card = new Card();
@@ -64,20 +61,15 @@ class CardGameController extends AbstractController
         // ];
 
         $deck = new DeckOfCards();
-        $deckie = [];
-        $test = "bye";
         for ($i = 1; $i <= 52; $i++) {
             $deck->add(new CardGraphic());
             $card = new Card();
             $card -> setValue();
             $card -> setSuit();
             //$deckie[]=$card->getAsString();
-
-            $test = $i;
         }
 
         $deck->getDeck();
-        $test2 = $deck->getNumberCards();
         //$deck->getDeck();
         $session->set("deck", $deck);
 
@@ -87,9 +79,7 @@ class CardGameController extends AbstractController
             "cardValue" => $card->setValue(),
             "cardSuit" => $card->setSuit(),
             "cardValueString" => $card->getValueAsString(),
-            "cardSuit" => $card->getSuit(),
             "deck" => $deck->getStringArray(),
-            "print" => $card->getPrint(),
         ];
 
         return $this->render('card.html.twig', $data);
@@ -97,7 +87,6 @@ class CardGameController extends AbstractController
 
     #[Route("/card/deck", name: "deck")]
     public function deck(
-        Request $request,
         SessionInterface $session
     ): Response {
         $deck = $session->get("deck");
@@ -119,14 +108,12 @@ class CardGameController extends AbstractController
 
     #[Route("/card/deck/shuffle", name: "shuffle")]
     public function shuffle(
-        Request $request,
         SessionInterface $session
     ): Response {
         $deck = new DeckOfCards();
 
         for ($i = 1; $i <= 52; $i++) {
             $deck->add(new CardGraphic());
-            $card = new Card();
         }
 
         $deck->getDeck();
@@ -146,7 +133,6 @@ class CardGameController extends AbstractController
 
     #[Route("/card/deck/draw", name: "draw")]
     public function draw(
-        Request $request,
         SessionInterface $session
     ): Response {
         $deck = $session -> get("deck");
@@ -180,10 +166,7 @@ class CardGameController extends AbstractController
 
     #[Route("/deck/hand", name: "init_hand_post", methods: ['POST'])]
     public function initCallback(
-        Request $request,
-        SessionInterface $session
     ): Response {
-        $numDice = $request->request->get('num_cards');
         $data = [
 
         ];
@@ -192,9 +175,8 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/deck/draw/{num<\d+>}", name: "draw_many")]
-    public function draw_many(
+    public function drawMany(
         int $num,
-        Request $request,
         SessionInterface $session
     ): Response {
 
@@ -227,8 +209,6 @@ class CardGameController extends AbstractController
 
         $updatedDeck = $session->get("deck", $deck);
         $data = [
-            "drawnSuit" => $drawn->GetSuit(),
-            "drawnValue" => $drawn->GetValueAsString(),
 
             "deck" => $session->get("deck", $deck),
             "hand" => $session->get("hand")->getStringArray(),
