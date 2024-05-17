@@ -5,6 +5,7 @@ namespace App\Card;
 class Card
 {
     protected string $value;
+    protected int $valueInt;
     protected string $suit;
     protected string $print;
 
@@ -80,6 +81,7 @@ class Card
     public function detValue($val): String
     {
         $this->value = $this->vals[$val];
+        $this->valueInt = $val;
         return $this->value;
     }
     /**
@@ -93,19 +95,19 @@ class Card
 
     public function getValue(): int
     {
-        $value = $this->value;
-        if ($value == 'A') {
-            $value = 1;
-        }
-        if ($value == 'J') {
-            $value = 11;
-        }
-        if ($value == 'Q') {
-            $value = 12;
-        }
-        if ($value == 'K') {
-            $value = 13;
-        }
+        $value = $this->valueInt;
+        // if ($value == 'A') {
+        //     $value = 1;
+        // }
+        // if ($value == 'J') {
+        //     $value = 11;
+        // }
+        // if ($value == 'Q') {
+        //     $value = 12;
+        // }
+        // if ($value == 'K') {
+        //     $value = 13;
+        // }
         return $value;
     }
     public function getValueAsString(): string

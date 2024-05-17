@@ -43,7 +43,7 @@ class CardHand extends Card
         $values = [];
         foreach ($this->hand as $card) {
             if ($card->getSuit()) {
-                $values[] = $card->getPrint();
+                $values[] = $card->getPrint()[0];
 
             }
         }

@@ -102,28 +102,29 @@ class DeckOfCards extends Card
         return $this->length;
     }
 
-    /** @return array<string> */
-    public function getValues(): array
-    {
-        $values = [];
-        foreach ($this->deck as $card) {
-            $values[] = $card->getValue();
-        }
-        return $values;
-    }
-    /** @return array<string> */
-    public function getString(): array
-    {
-        $values = [];
-        foreach ($this->deck as $card) {
-            $val =  $card->getAsString();
-            $sui = $card->getSuit();
+    // /** @return array<string> */
+    // public function getValues(): array
+    // {
+    //     $values = [];
+    //     foreach ($this->deck as $card) {
+    //         $values[] = $card->getValue();
+    //     }
+    //     return $values;
+    // }
 
-            $cardstring =  $val + $sui;
-            $values[] = $cardstring;
-        }
-        return $values;
-    }
+    /** @return array<string> */
+    // public function getString(): array
+    // {
+    //     $values = [];
+    //     foreach ($this->deck as $card) {
+    //         $val =  $card->getAsString();
+    //         $sui = $card->getSuit();
+
+    //         $cardstring =  $val + $sui;
+    //         $values[] = $cardstring;
+    //     }
+    //     return $values;
+    // }
     /** @return array<string> */
     public function getStringArray(): array
     {
@@ -157,7 +158,8 @@ class DeckOfCards extends Card
     {
         for ($i = 53 - $this->length; $i <= 52; $i++) {
             $last = 52 - $i;
-            $index = random_int(0, $last);
+            $last == 0 ? $index = 0 : $index = random_int(0, $last);
+            //$index = random_int(0, $last);
             $picked = $this->deck[$index];
             $this->deck[$index] = $this->deck[52 - $i];
             $this->deck[52 - $i] = $picked;
