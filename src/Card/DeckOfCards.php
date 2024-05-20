@@ -86,15 +86,15 @@ class DeckOfCards extends Card
 
     // }
 
-    public function drawCard(): Card
-    {
+    // public function drawCard(): Card
+    // {
 
-        $drawnCard = $this->deck[0];
-        //$this->deck[0] -> NewCard();
-        $this->length--;
+    //     $drawnCard = $this->deck[0];
+    //     //$this->deck[0] -> NewCard();
+    //     $this->length--;
 
-        return $drawnCard;
-    }
+    //     return $drawnCard;
+    // }
 
 
     public function getNumberCards(): int

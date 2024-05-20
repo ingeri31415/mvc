@@ -143,7 +143,7 @@ class GameController extends AbstractController
         );
     }
 
-    #[Route("/game/doc", name: "doc")]
+    #[Route("/game/doc", name: "gamedoc")]
     public function gameDoc(
     ): Response {
         return $this->render('doc.html.twig');

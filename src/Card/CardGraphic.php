@@ -70,6 +70,7 @@ class CardGraphic extends Card
 
     public function getPrint(): array
     {
-        return [$this->representation[$this->getValue() + ($this->getSuitIndex() * 13) - 1]];
+
+        return [$this->representation[$this->getValue() + ($this->getSuitIndex() * 13)]];
     }
 }
