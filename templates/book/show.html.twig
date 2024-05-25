@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ingrid's Library{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<h1> Welcome to the library</h1>
+
+<a href="{{ path('library') }}">Back to start</a>
+
+<ul>
+    <table>
+    <tr>
+    <th>Ibsn</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Picture</th>
+    <th>Details</th>
+    <th>Edit</th>
+    </tr>
+    {% for book in books %}
+           
+        <tr>
+        
+        <td>{{ book.ibsn }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td> <img src= "{{ asset( book.image ) }}" alt="Picture missing" width='200'></td>
+        <td><a href="{{ path('show_one', {num: book.ibsn } ) }}">here</a></td>
+        <td><a href="{{ path('update', {id: book.ibsn } ) }}">Edit</a></td>
+
+        </tr>
+        
+    {% endfor %}
+    </table>
+</ul>
+
+{% endblock %}

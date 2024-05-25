@@ -81,26 +81,26 @@
         phpunit. Inga konstigeter. Kan dock känna att den inte bryr sig om testet är värdefullt eller inte. 
         Det går i vissa fall att skapa bra kodtäckning som egentligen inte gör så mycket. Att koden har luckor
         ändå, trots testningen. Jag tycker att det som gav mest egentligen var att man fick bättre koll på sin 
-        egen kod. Gag förstod tillexempel att jag hade kod som jag inte använder mig av.
+        egen kod. Jag förstod till exempel att jag hade kod som jag inte använder mig av.
 
         Jag lyckades komma upp i hög kodtäckning. Det enda som bara var 90% var getSuitIndex(). Det beror på att
         jag inte kan ha en else-sats då det är onödigt enligt kodstandard. När jag tog bort else satasen, så behövs
         en return sats i slutet för att metoden inte ska kunna köras utan att returnera något. När jag sedan ska testa
-        den kodraden så måste jag ska ett kort som inte har en av de fyra färgerna. Det gör att phpunit get varningen
+        den kodraden så måste jag skapa ett kort som inte har en av de fyra färgerna. Det gör att phpunit ger varningen
         "remaining self deprecation notices". Resultatet är att det inte går att skapa ett testfall för den raden
-        då koden kommer att säga ifrån innan med att du användt ett ogiltigt index till suits[] arrayen. Så det går 
-        inte att testa då fallet aldrig kommer att inträffa. 
+        då koden kommer att säga ifrån innan med att du använt ett ogiltigt index till suits[] arrayen. Så att det inte testas
+        gör inte så mycket då fallet aldrig kommer att inträffa. 
 
         Det finns många förbättringar som jag skulle kunna göra för mer testbar kod men den som sticker ut mest är nog 
         att skapandet av en kortlek (deckOfCards) börjar med att man manuelt behöver lägga in 52 tomma kort för att sedan
-        hämta en fullständig kortlek de 52 olika korten. 
+        hämta en fullständig kortlek med de 52 olika korten. 
 
         Jag tycker att man känner att ju enklare kod detsto enklare är den att testa. Enklare kod innebär ofta
-        mindre rader kod och det blir ju mindre som ska testas. Så fort mina metoder drog iväg i längd så blev det
+        färre rader kod och det blir ju färre rader som ska testas. Så fort mina metoder drog iväg i längd så blev det
         jobbigare att testa dem. Oftast är snygg kod kort och gör inget mer än den behöver. Dock kan kort kod ibland
         vara svårläst om den försöker göra för mycket i en rad. 
 
-        Min TIL blir att skriva kodtexter inte bara ser till att koden fungerar som den ska men också hjälper 
+        Min TIL blir att skriva kodtester inte bara ser till att koden fungerar som den ska men också hjälper 
         till att öka värdet på enkel kod. 
     
     </p>

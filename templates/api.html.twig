@@ -39,5 +39,13 @@
     <h2> api/game</h2>
     <p> See the current scores of the game</p>
 
+    <h2> api/library/books </h2>
+    <p> Shows books in the Library</p>
+    <a href="{{ path('jsonLibrary') }}">Show books</a>
+
+    <h2> api/library/books/{num} </h2>
+    <p> Shows one book in the Library</p>
+
+    <a href="{{ path('libraryOne', {num: '48938729' } ) }}">Show one book</a>
    
 {% endblock %}
