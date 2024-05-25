@@ -29,7 +29,7 @@
         <td>{{ book.ibsn }}</td>
         <td>{{ book.title }}</td>
         <td>{{ book.author }}</td>
-        <td> <img src= "{{ asset( book.image ) }}" alt="Picture missing" width='200'></td>
+        <td> <img src= "{{ asset( book.image ) }}" alt="Picture missing in library" width='200'></td>
         <td><a href="{{ path('show_one', {num: book.ibsn } ) }}">here</a></td>
         <td><a href="{{ path('update', {id: book.ibsn } ) }}">Edit</a></td>
 
