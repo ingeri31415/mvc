@@ -51,7 +51,7 @@ class DeckOfCards extends Card
                 $cardVal = 1;
                 $cardSuit++;
             }
-            $card->detValue($cardVal - 1);
+            $card->detValue($cardVal-1);
             $card->detSuit($cardSuit);
             $card->setPrint();
             $cardVal++;
@@ -197,7 +197,7 @@ class DeckOfCards extends Card
 
                 $cur = $this->deck[$j];
                 $next = $this->deck[$j + 1];
-                if ($cur->getSuit()) {
+                //if ($cur->getSuit()) {
                     if ($cur->getSuitIndex() > $next->getSuitIndex()) {
                         $temp = $this->deck[$j];
                         $this->deck[$j] = $this->deck[$j + 1];
@@ -210,7 +210,7 @@ class DeckOfCards extends Card
                             $this->deck[$j + 1] = $temp;
                         }
                     }
-                }
+                //}
             }
         }
 

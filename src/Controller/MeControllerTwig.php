@@ -51,6 +51,13 @@ class MeControllerTwig extends AbstractController
         return $this->render('lucky.html.twig', $data);
     }
 
+    #[Route('/metrics', name: "metrics")]
+    public function metrics(): Response
+    {
+
+        return $this->render('metrics.html.twig');
+    }
+
     #[Route("/api", name: "api")]
     public function jsonNumber(): Response
     {

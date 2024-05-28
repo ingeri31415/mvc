@@ -1,0 +1,118 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ingrid's page{% endblock %}
+
+
+{% block body %}
+<a href="https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/quality-score.png?b=main">
+<img src= "{{ asset('https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/quality-score.png?b=main') }}" alt="picture of cake" width='250'>
+</a>
+
+<a href="https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/build.png?b=main">
+<img src= "{{ asset('https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/build.png?b=main') }}" alt="picture of cake" width='250'>
+</a>
+
+<a href="https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/coverage.png?b=main">
+<img src= "{{ asset('https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/coverage.png?b=main') }}" alt="picture of cake" width='250'>
+</a>
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/ingeri31415/mvc/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/build.png?b=main)](https://scrutinizer-ci.com/g/ingeri31415/mvc/build-status/main)
+[![Code Coverage](https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/ingeri31415/mvc/?branch=main)
+
+
+    <h1>Ingrid's Metrics analys</h1>
+    <h2> Introduction </h2>
+    <p> the six cs
+
+    Codestyle
+    Coverage
+    Complexity
+    Cohesion
+    Coupling
+    CRAP
+
+    När det kommer till kodstandard så är det ett bra sätt att skapa enheltlig kod som håller lever uppgiften
+    till ett antal förväntningar som man kan ha på koden. Det blir ett bra regelverk som tex en grupp kan följa 
+    där alla är på samma sida. Det hjälper till att hålla koden inom ett ramverk som gör att det blir enklare att 
+    underhålla så att inte mer fel skapas. 
+
+    Täckning i sin del är ett mått på hur mycket av koden som täcks av tester som görs. I relation till 
+    kvaliteten på koden så hjälper ju testning att koden fungerar som tänkt väldigt bra. Om tester körs 
+    ökar det chansen att fel i koden hittas och det är ju definint ett plus för kvaliteten. Dock kan ju 
+    fel slinka igenom ändå men risken minskar. Det kan handla om att variabler ska ha rätt enheter eller
+    att de har rätt storlek när de initieras. Tittar man på min kod ser man att Diceklassen har 0% täckning 
+    då jag int gjort några tester för den klassen medan Card har 100% täckning så jag skapat test för den klassen. 
+
+    Komplexitet på koden handlar om att göra saker simpelt, inte krångla till det i onödan. Det är egentligen
+    ett mått på hur många olika rutter man kan göra genom koden. Det går ju att tänkas att ju fler rutter desto 
+    fler ställen kan det gå fel på. Det är också lättare att underhålla och arbeta med kod som inte drar iväg 
+    komplexitetsmässigt. Det går att hålla bättre koll på kod som inte har många olika rutter som kan äga rum.
+    Om vi tittar på min kod kan vi se att getSuitIndex har komplexitet 5 då vi har fyra olika suits och ett default
+    fall. Det betyder att det finns fem olika vägar att gå igenom koden. Om vi jämför det med metoden draw som har 
+    komplexitet 1 eftersom det bara finns en väg genom koden då metoden får exakt samma utfall varje gång den 
+    körs - ett kort dras.  
+
+    Kohesion handlar om att se till att klasser håller sig till sin sak. En klass som försöker göra för mycket 
+    på en och samma gång blir svår att hantera. Det blir ofta svårt att förstå vad klassen gör och kan även tänkas
+    att koppla samman dem gör att man får en halv klass som man inte behöver. 
+
+    Coupling handlar om hur många kopplingar en klass har till andra klasser. Det innefattar hur många som behöver
+    klassen samt hur många klasser den själv använder. När det kommer till kvalitet så blir det svårt att hålla koll
+    på var det går fel om alla klasser använder alla och alla klasser har olika behov som måste ansvaras för och underhållas.
+    Om vi tittar på min kod kan vi se att Card har hög coupling på hur många klasser som den används av (6) men låg för hur många 
+    som den själv använder (0). På andra sidan spektrat har vi GameController som har 0 som använder den men 10 som den använder sig av.
+    
+    CRAP beskriver hur mucket jobb som krävs för att gå från dåligt till bra. Höga siffror betyder att det är massor av
+    tester som kan skrivas för att gottgöra att koden inte lever upp till hög kvalitet. Det betyder att du kan kompensera
+    genom att skriva tester för att minimera riskerna med den kod du har skrivit. Det är bra för att då kan man nå maximal
+    funktion av koden som mätvärden beskriver som dålig men ändå klara sig undan de värsta om testen kan försäkra att de inte
+    inträffar. Då kan vi få kvalitativ kod som ändå lyckas göra komplexa grejer. 
+    
+    Som ett exempel kan vi titta på min funktion deckOfCardsSort() som sorterar korten med bubblesort. Den har en komplexitet på 7
+    storlek 14 och Crap på 7. Funktionen DiceGameController/roll som har komplexitet 3, storlek 17 och Crap score 12. Då kan vi se att
+    trots hög komplexitet på Sort funtionen så hålls crap score ner av att det är kod som jag har skapat tester till vilket jag inte 
+    har gjort för rollfunktionen som har låg komplexitet men högre crap score. 
+    </p>
+    <h2> phpmetrics </h2>
+    <p>
+    Vi tittar in på vad phpmetrics säger om min kod. Vi börjar med översikten där vi ser att vi har 8 violations men att ingen är kritisk.
+    Vi har en genomsnittlig komplexitet på 3,17 och 0,14 buggar genomsnittligt per class. Vi tar oss en titt på underhållbarhet och komplexitets-
+    diagrammet och ser att de som får grönt verkar vara de med låg komplexitet. Men att det också blir väldigt mycket bättre med kommentarer än utan
+    då många större röda cirklar blir gula och några små gula blir gröna. Dock blir några av de gula röda med kommentarer. Så helt linjärt är det inte. 
+    Vi tar oss en titt på enhetstesting och ser att de klasser som inte har någon enhetstestning får lite högre sannolikhet för buggar när de har högre
+    kompexitet och det innebär att de önskas täckas av enhetstesting. </p>
+
+    <img src= "{{ asset('img/bubbles_with.png') }}" alt="with comments" width='250'>
+    <img src= "{{ asset('img/bubbles_without.png') }}" alt="without comments" width='250'>
+
+    <h2> Scrutinizer </h2>
+    <p>
+    Vi tar oss en titt på Scrutinizer och det första vi ser är att vi har en översiktilig betyg på 9.97 av 10 vilket ser riktigt bra ut. 
+    Det är också bara en metod som inte har B istället för A. Det är metoden för att sortera kortleken. Det är ganska logiskt att den har 
+    hög komplexitet eftersom att sortering är komplicerat och att det är just bubble sort som är en sorteringsmetod som inte är känd för 
+    sin låga komplexitet utan snarare att den är enkel att implementera. 
+
+    Vi tittar på badges:ena och ser att vår build har gått igenom men att vår kodtäckning är på låga 21%. Det är inte så förvånande när vi 
+    bara jobbat med vissa klasser vad gäller just enhetstester. Det finns mycket kod som inte testas alls, speciellt när det gäller Controllers.
+    De har en del metoder och relativt hög komplexitet. Vi vet också från phpmetrics att de har hög ingående coupling.    
+
+
+    Det framgår att DeckOfCards klassen är den största klassen men också den med högst komplexitet. Den har 100% i täckning vilket är bra men det 
+    det betyder inte att klassen fortfarande skulle kunna behöva delas upp. Vi kan stödja det med att Lcom också är väldigt högt (när vi tittar på phpmetrics).
+    Dock om vi tittar på vilka php klasser som den anser vara sämst så är den bara på sjude plats. Det bör dock tilläggas att det blir plats två bland de klasser
+    som enhetstestas då controllers och test de själva inte testas. 
+
+    </p>
+
+    <h2> Improvements </h2>
+    <p>
+    Förbättringar som jag tänker jobba med är kodtäckning, kodkomplexitet och issues på Scrutinizer. Jag tänker att det mycket som kommer 
+    hjälpas av enhetstestning kommer öka kodtäckningen som på scrutinizer är röd. Sedan vill jag titta på kodkomplexitet framför allt för sort-funktionen för att se om jag kan få upp betyget där. 
+    Till sist vill jag titta på issues på scrutinizer så att vi kan få ner dem då de uppenbarligen kan skapa problem. 
+    </p>
+
+
+    <h2> Discussion </h2>
+{% endblock %}
+

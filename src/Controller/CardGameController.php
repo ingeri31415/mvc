@@ -79,7 +79,7 @@ class CardGameController extends AbstractController
             "cardValue" => $card->setValue(),
             "cardSuit" => $card->setSuit(),
             "cardValueString" => $card->getValueAsString(),
-            "deck" => $deck->getStringArray(),
+            //"deck" => $deck->getStringArray(),
         ];
 
         return $this->render('card.html.twig', $data);

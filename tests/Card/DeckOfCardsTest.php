@@ -39,7 +39,7 @@ class DeckOfCarTest extends TestCase
         }
         $deck->getDeck();
         //$card = $deck->getCard(51);
-
+        $deck2->getDeck();
 
         $deck1 = $deck;
         $deck1Json = $deck->getJsonStringArray();

@@ -119,7 +119,7 @@ class Card
     public function detValue($val): String
     {
         $this->value = $this->vals[$val];
-        $this->valueInt = $val;
+        $this->valueInt = $val + 1;
         return $this->value;
     }
     /**
@@ -139,7 +139,8 @@ class Card
      * */
 
     public function getValue(): int
-    {
+    {   
+        //$value = $this->valueInt;
         $value = $this->valueInt;
         // if ($value == 'A') {
         //     $value = 1;
@@ -153,7 +154,10 @@ class Card
         // if ($value == 'K') {
         //     $value = 13;
         // }
-        return $value;
+        if ($value){
+            return $value;
+        }
+        return -1;
     }
 
     /**
@@ -181,6 +185,7 @@ class Card
      * */
     public function getSuitIndex(): int
     {
+        //$suit = $this->suit ? $this->suit : -1;
         $suit = $this->suit;
         if ($suit == "♠") {
             return 0;
