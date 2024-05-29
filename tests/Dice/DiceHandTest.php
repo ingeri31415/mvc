@@ -17,7 +17,7 @@ class DiceHandTest extends TestCase
     {
         $dieH = new DiceHand();
         $this->assertInstanceOf("\App\Dice\DiceHand", $dieH);
-        $dieH->add(New Dice);
+        $dieH->add(new Dice());
         $res = $dieH->getString();
         $this->assertNotEmpty($res);
         $this->assertEquals(1, $dieH->getNumberDices());
@@ -26,7 +26,7 @@ class DiceHandTest extends TestCase
     public function testValuesDiceHand()
     {
         $dieH = new DiceHand();
-        $dieH->add(New Dice);
+        $dieH->add(new Dice());
         $dieH->roll();
         $vals = $dieH->getValues();
         $this->assertNotEquals(0, $vals[0]);

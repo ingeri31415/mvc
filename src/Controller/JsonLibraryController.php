@@ -14,8 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class JsonLibraryController extends AbstractController
 {
-
-#[Route('/api/library/books', name: 'jsonLibrary')]
+    #[Route('/api/library/books', name: 'jsonLibrary')]
     public function jsonLibrary(
         BooksRepository $booksRepository
     ): Response {

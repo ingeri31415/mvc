@@ -22,7 +22,8 @@ class DiceTest extends TestCase
         $this->assertNotEmpty($res);
     }
 
-    public function testValueDice(){
+    public function testValueDice()
+    {
 
         $die = new Dice();
         $value = $die->roll();
@@ -31,7 +32,7 @@ class DiceTest extends TestCase
         $this->assertEquals($value, $value2);
         $this->assertGreaterThan(0, $value);
         $this->assertLessThan(7, $value);
-        
+
 
     }
 

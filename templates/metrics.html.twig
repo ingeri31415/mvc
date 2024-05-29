@@ -16,11 +16,6 @@
 <img src= "{{ asset('https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/coverage.png?b=main') }}" alt="picture of cake" width='250'>
 </a>
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/ingeri31415/mvc/?branch=main)
-[![Build Status](https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/build.png?b=main)](https://scrutinizer-ci.com/g/ingeri31415/mvc/build-status/main)
-[![Code Coverage](https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/ingeri31415/mvc/?branch=main)
-
-
     <h1>Ingrid's Metrics analys</h1>
     <h2> Introduction </h2>
     <p> the six cs
@@ -92,18 +87,21 @@
     Det är också bara en metod som inte har B istället för A. Det är metoden för att sortera kortleken. Det är ganska logiskt att den har 
     hög komplexitet eftersom att sortering är komplicerat och att det är just bubble sort som är en sorteringsmetod som inte är känd för 
     sin låga komplexitet utan snarare att den är enkel att implementera. 
-
+    </p>
+    
+    <p>
     Vi tittar på badges:ena och ser att vår build har gått igenom men att vår kodtäckning är på låga 21%. Det är inte så förvånande när vi 
     bara jobbat med vissa klasser vad gäller just enhetstester. Det finns mycket kod som inte testas alls, speciellt när det gäller Controllers.
     De har en del metoder och relativt hög komplexitet. Vi vet också från phpmetrics att de har hög ingående coupling.    
-
-
+    </p>
+    
+    <p>
     Det framgår att DeckOfCards klassen är den största klassen men också den med högst komplexitet. Den har 100% i täckning vilket är bra men det 
     det betyder inte att klassen fortfarande skulle kunna behöva delas upp. Vi kan stödja det med att Lcom också är väldigt högt (när vi tittar på phpmetrics).
     Dock om vi tittar på vilka php klasser som den anser vara sämst så är den bara på sjude plats. Det bör dock tilläggas att det blir plats två bland de klasser
     som enhetstestas då controllers och test de själva inte testas. 
-
     </p>
+    
 
     <h2> Improvements </h2>
     <p>
@@ -111,8 +109,56 @@
     hjälpas av enhetstestning kommer öka kodtäckningen som på scrutinizer är röd. Sedan vill jag titta på kodkomplexitet framför allt för sort-funktionen för att se om jag kan få upp betyget där. 
     Till sist vill jag titta på issues på scrutinizer så att vi kan få ner dem då de uppenbarligen kan skapa problem. 
     </p>
+    
+    <p> 
+        Jag började med att enhetstesta Dice klassen som nu har 100% från phpunit. Det har gjort
+        att kodtäckningen har gått upp med 2% från 21% till 23%. Det kan tänkas inte vara så mycket då det fortfarande blir
+        en rött i badges på Scrutinizer. Det som gör att det fortfarande inte är så bra är att det finns så många rader kod som 
+        inte är testade eftersom alla routes och tester inte testas. Vid fortsatt utveckling kan det vara ett naturligt steg. Sedan
+        har jag jobbat med sort funktionen i DeckOfCards för att få ner komplexiteten. Jag gjorde det genom att ta bort en if-sats från
+        den funktionen och flyttade den till andra funktioner istället där de var mer logiskt att ha den enligt mig. Det gjorde att komplexiteten gick
+        ner från 7 till 6 och så även crap score (enligt scrutinizer). Utöver det så i och med den sänkta komplexiteten så gick betyget på metoden från
+        B till A vilket i sin tur gjorde så att kvalitetsbetyget gick från 9.7 till 10. Det gillar vi. Det syntes även på phpmetrics där cc by class gick ner med 0.13%.
+        vi ser även att det finns lite fler gröna prickar i diagrammet för underhåll och complexitet. 
+        <img src= "{{ asset('img/new_bubbles_with.png') }}" alt="new bubbles with comments" width='250'>
 
+        Sedan fixade vi lite issues på scrutinizer. Det
+        var en som handlade om att ett cs-fixer element inte kunde initieras. När det kommer till cs-fix är det inte något som vi vill ha med i 
+        vårt repo eftersom det är till för oss som utvecklare därför lag jag in ".php-cs-fixer.dist.php" i gitignore. Sedan hade den probelm med 
+        luckyController och luckyControllerJson i example-mappen. Då den inte tyckte att $number variablen var rätt initierad. Det gjode att jag kopierade in 
+        dem två i src mappen och fixade till dem så att de fungerar som tänkt utan att skapa issues. Jag la sedan example mappen i gitignore eftersom den inte 
+        heller hör hemma i mitt repo. När jag hade kopierat dem utan att fixa dem körde jag en inspektion och hade då även ett fel bland testerna som gjorde att
+        jag introducerade 5 nya issues. Men nu är alla 11 issues fixade. Om ci tittar på badges ser de ut så här. 
+    </p>
+
+    <a href="https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/quality-score.png?b=main">
+    <img src= "{{ asset('https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/quality-score.png?b=main') }}" alt="scrutinizer badge" width='250'>
+    </a>
+
+    <a href="https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/coverage.png?b=main">
+    <img src= "{{ asset('https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/coverage.png?b=main') }}" alt="coverage badge" width='250'>
+    </a>
+
+    <a href="https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/build.png?b=main">
+    <img src= "{{ asset('https://scrutinizer-ci.com/g/ingeri31415/mvc/badges/build.png?b=main') }}" alt="buid badge" width='250'>
+    </a>
 
     <h2> Discussion </h2>
+
+    <p>
+        Det finns absolut sätt som vi kan arbeta med ren kod. Ju mer vi använder verktygen desto bättre kod
+        kommer vi att skriva även utan verktygen om vi håller mätvärdena i åtanke medan vi kodar. 
+
+        fördelar med att jobba med kodkvalitet är att det kan förbygga buggar och skapa enklare och mer läsbar kod
+        utan att försämra funktionen. Det finns ju också nackdelar som att förlita sig på verktygen och tro 
+        att det inte kan bli några fel om man har fått grönt ljus från dem. Det är också lätt att förlita sig
+        på mättalen utan att tänka på att de också har brister. Man ska inte glömma att ha ett kritiskt öga på mättalen
+        när man jobbar med dem. 
+
+        Andra möjligheter är att just tänka på mättalen medan man kodar och vara medveten om de val man gör och hur det 
+        kommer påverka kvaliteten på koden och veta vilka alternativa vägar man kan ta för att hålla god kvalitet på koden 
+        redan från början. Då kan man spara tid.   
+    </p>
+
 {% endblock %}
 

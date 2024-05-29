@@ -139,7 +139,7 @@ class Card
      * */
 
     public function getValue(): int
-    {   
+    {
         //$value = $this->valueInt;
         $value = $this->valueInt;
         // if ($value == 'A') {
@@ -154,7 +154,7 @@ class Card
         // if ($value == 'K') {
         //     $value = 13;
         // }
-        if ($value){
+        if ($value) {
             return $value;
         }
         return -1;

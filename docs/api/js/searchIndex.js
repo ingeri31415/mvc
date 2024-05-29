@@ -491,6 +491,46 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-JsonLibraryController.html#method_jsonLibraryOne"
         },                {
+            "fqsen": "\\App\\Controller\\LuckyController",
+            "name": "LuckyController",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\LuckyController\u003A\u003Anumber\u0028\u0029",
+            "name": "number",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyController.html#method_number"
+        },                {
+            "fqsen": "\\App\\Controller\\LuckyController\u003A\u003Ahello\u0028\u0029",
+            "name": "hello",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyController.html#method_hello"
+        },                {
+            "fqsen": "\\App\\Controller\\LuckyController\u003A\u003AjsonNnumber\u0028\u0029",
+            "name": "jsonNnumber",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyController.html#method_jsonNnumber"
+        },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerJson",
+            "name": "LuckyControllerJson",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerJson.html"
+        },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003Anumber\u0028\u0029",
+            "name": "number",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerJson.html#method_number"
+        },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003Anumber2\u0028\u0029",
+            "name": "number2",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerJson.html#method_number2"
+        },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003Anumber3\u0028\u0029",
+            "name": "number3",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerJson.html#method_number3"
+        },                {
             "fqsen": "\\App\\Controller\\MeController",
             "name": "MeController",
             "summary": "",
@@ -520,6 +560,11 @@ Search.appendIndex(
             "name": "number",
             "summary": "",
             "url": "classes/App-Controller-MeControllerTwig.html#method_number"
+        },                {
+            "fqsen": "\\App\\Controller\\MeControllerTwig\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-MeControllerTwig.html#method_metrics"
         },                {
             "fqsen": "\\App\\Controller\\MeControllerTwig\u003A\u003AjsonNumber\u0028\u0029",
             "name": "jsonNumber",
@@ -931,6 +976,31 @@ Search.appendIndex(
             "summary": "Test\u0020for\u0020the\u0020addToScore\u0020method\u0020of\u0020player.",
             "url": "classes/App-Card-PlayerTest.html#method_testSorePlayer"
         },                {
+            "fqsen": "\\App\\Dice\\DiceGraphicTest",
+            "name": "DiceGraphicTest",
+            "summary": "Test\u0020cases\u0020for\u0020class\u0020Dice.",
+            "url": "classes/App-Dice-DiceGraphicTest.html"
+        },                {
+            "fqsen": "\\App\\Dice\\DiceGraphicTest\u003A\u003AtestCreateDice\u0028\u0029",
+            "name": "testCreateDice",
+            "summary": "Construct\u0020object\u0020and\u0020verify\u0020that\u0020the\u0020object\u0020has\u0020the\u0020expected\nproperties,\u0020use\u0020no\u0020arguments.",
+            "url": "classes/App-Dice-DiceGraphicTest.html#method_testCreateDice"
+        },                {
+            "fqsen": "\\App\\Dice\\DiceHandTest",
+            "name": "DiceHandTest",
+            "summary": "Test\u0020cases\u0020for\u0020class\u0020Dice.",
+            "url": "classes/App-Dice-DiceHandTest.html"
+        },                {
+            "fqsen": "\\App\\Dice\\DiceHandTest\u003A\u003AtestCreateDiceHand\u0028\u0029",
+            "name": "testCreateDiceHand",
+            "summary": "Construct\u0020object\u0020and\u0020verify\u0020that\u0020the\u0020object\u0020has\u0020the\u0020expected\nproperties,\u0020use\u0020no\u0020arguments.",
+            "url": "classes/App-Dice-DiceHandTest.html#method_testCreateDiceHand"
+        },                {
+            "fqsen": "\\App\\Dice\\DiceHandTest\u003A\u003AtestValuesDiceHand\u0028\u0029",
+            "name": "testValuesDiceHand",
+            "summary": "",
+            "url": "classes/App-Dice-DiceHandTest.html#method_testValuesDiceHand"
+        },                {
             "fqsen": "\\App\\Dice\\DiceTest",
             "name": "DiceTest",
             "summary": "Test\u0020cases\u0020for\u0020class\u0020Dice.",
@@ -940,6 +1010,11 @@ Search.appendIndex(
             "name": "testCreateDice",
             "summary": "Construct\u0020object\u0020and\u0020verify\u0020that\u0020the\u0020object\u0020has\u0020the\u0020expected\nproperties,\u0020use\u0020no\u0020arguments.",
             "url": "classes/App-Dice-DiceTest.html#method_testCreateDice"
+        },                {
+            "fqsen": "\\App\\Dice\\DiceTest\u003A\u003AtestValueDice\u0028\u0029",
+            "name": "testValueDice",
+            "summary": "",
+            "url": "classes/App-Dice-DiceTest.html#method_testValueDice"
         },                {
             "fqsen": "\\",
             "name": "\\",

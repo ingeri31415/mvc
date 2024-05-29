@@ -15,8 +15,8 @@ class BooksRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Books::class);
     }
-    /** @param Array<Books> $books 
-     * @return array<string> 
+    /** @param Array<Books> $books
+     * @return array<string>
      */
     public function getJsonStringArray($books): array
     {

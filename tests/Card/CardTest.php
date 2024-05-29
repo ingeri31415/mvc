@@ -45,7 +45,7 @@ class CardTest extends TestCase
 
 
 
-        $this->assertEquals(0, $val2-1);
+        $this->assertEquals(0, $val2 - 1);
         //$this->assertEquals(0, $suit);
         for ($i = 0; $i < 4; $i++) {
             $card3 = new Card();
