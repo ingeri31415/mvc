@@ -8,40 +8,42 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyControllerJson
 {
-    private $number = 0;
 
 
 
     /**
-     * @Route("/api/lucky/number")
+     * @Route("/api/lucky/number1")
      */
-    public function number(): Response
-    {
-        $this->number = random_int(0, 100);
 
-        $data = [
-            'lucky-number' => $this->number
-        ];
+     #[Route("/api/lucky/number1")]
+     public function number(): Response
+     {
+         $number = random_int(0, 100);
 
-        $response = new Response();
-        $response->setContent(json_encode($data));
-        $response->headers->set('Content-Type', 'application/json');
+         $data = [
+             'lucky-number' => $number
+         ];
 
-        return $response;
-    }
+         $response = new Response();
+         $response->setContent(json_encode($data));
+         $response->headers->set('Content-Type', 'application/json');
+
+         return $response;
+     }
 
 
 
     /**
      * @Route("/api/lucky/number2")
      */
+    #[Route("/api/lucky/number2")]
     public function number2(): Response
     {
-        $this->number = random_int(0, 100);
+        $number = random_int(0, 100);
 
         $data = [
             'message' => 'Welcome to the lucky number API',
-            'lucky-number' => $this->number
+            'lucky-number' => $number
         ];
 
         //return new JsonResponse($data);
@@ -58,15 +60,16 @@ class LuckyControllerJson
     /**
      * @Route("/api/lucky/number/{min}/{max}")
      */
+    #[Route("/api/lucky/number/{min}/{max}")]
     public function number3(int $min, int $max): Response
     {
-        $this->number = random_int($min, $max);
+        $number = random_int($min, $max);
 
         $data = [
             'message' => 'Welcome to the lucky number API',
             'min number' => $min,
             'max number' => $max,
-            'lucky-number' => $this->number
+            'lucky-number' => $number
         ];
 
         return new JsonResponse($data);

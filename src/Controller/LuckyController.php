@@ -9,7 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class LuckyController
 {
 
-    private $number = 0;
 
     #[Route('/lucky/number')]
     public function number(): Response
@@ -32,10 +31,10 @@ class LuckyController
     #[Route("/api/lucky/number")]
     public function jsonNnumber(): Response
     {
-        $this->number = random_int(0, 100);
+        $number = random_int(0, 100);
 
         $data = [
-            'lucky-number' => $this->number,
+            'lucky-number' => $number,
             'lucky-message' => 'Hi there!',
         ];
 
