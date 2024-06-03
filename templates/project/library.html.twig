@@ -1,0 +1,45 @@
+{% extends "/project/proj_base.html.twig" %}
+
+{% block title %}Ingrid's game{% endblock %}
+
+{% block body %}
+
+
+
+
+
+
+<div class="mess"> <h3>Message: </h3><br> {{ message }}</div> 
+<div class=bp>
+    <h3>Backpack: </h3><br>
+    <ul>
+    {% for item in names %}
+        <li>
+        {{ item }}
+        <a href="{{ path('eat', {num: loop.index -1} ) }}">eat</a>
+        <a href="{{ path('read', {num: loop.index -1} ) }}">read</a>
+        <a href="{{ path('give', {num: loop.index -1} ) }}">give</a>
+        </li>
+        <br>
+        
+        
+    {% endfor %}
+    </ul>
+</div>
+
+<div class=text>
+<img src= "{{ asset('img/library.jpg') }}" alt="picture of library" width='250'>
+<h1> The library </h1>
+
+<h3> You have found 2 books!
+    Pick them up?
+    <td><a href="{{ path('bookpick') }}">pick up</a></td>
+</h3>
+
+
+</div>
+
+<div class=right><a href="{{ path('sitting') }}">Move to sitting room</a></div>
+<div class=left><a href="{{ path('ent') }}">Move to entrance hall</a></div>
+
+{% endblock %}

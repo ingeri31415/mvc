@@ -1,0 +1,53 @@
+{% extends "/project/proj_base.html.twig" %}
+
+{% block title %}Ingrid's game{% endblock %}
+
+{% block body %}
+
+<div class="mess"> <h3>Message: </h3><br> {{ message }}</div> 
+<div class=bp>
+    <h3>Backpack: </h3><br>
+
+    {% for item in names %}
+
+        {{ item }}
+        <a href="{{ path('eat', {num: loop.index -1} ) }}">eat</a>
+        <a href="{{ path('read', {num: loop.index -1} ) }}">read</a>
+        <a href="{{ path('give', {num: loop.index -1} ) }}">give</a>
+
+        <br>
+    {% endfor %}
+
+</div>
+<div class=text>
+<img src= "{{ asset('img/cat.jpg') }}" alt="picture of cat" width='250'>
+<h1> The hallway </h1>
+
+
+<h3> There is a troll guarding the door!
+    What do you want to do?
+    Either give the troll something from your backpack or give it a compliment!
+</h3>
+
+
+
+<form method="post" action="{{ path('secret') }}">
+    <ul>
+        <div>
+        <label for="comp">Enter Compliment</label>
+        <input type="text" name="comp">
+        </div>
+
+        <input type="submit" name="skicka" value="ok" ;">
+    </ul>
+</form>
+
+</div>
+
+<div class=right><a href="{{ path('ent') }}">Move to entrance</a></div>
+<div class=left><a href="{{ path('sitting') }}">Move to sitting room</a></div>
+
+
+
+
+{% endblock %}
