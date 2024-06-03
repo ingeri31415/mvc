@@ -626,6 +626,86 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ProductController.html#method_showProductByMinimumValue"
         },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController",
+            "name": "ProjectGameController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Aproj\u0028\u0029",
+            "name": "proj",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_proj"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Aentrance\u0028\u0029",
+            "name": "entrance",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_entrance"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Alib\u0028\u0029",
+            "name": "lib",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_lib"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Asitting\u0028\u0029",
+            "name": "sitting",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_sitting"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Ahall\u0028\u0029",
+            "name": "hall",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_hall"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Asecret\u0028\u0029",
+            "name": "secret",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_secret"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Apick\u0028\u0029",
+            "name": "pick",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_pick"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Abookpick\u0028\u0029",
+            "name": "bookpick",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_bookpick"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Anotepick\u0028\u0029",
+            "name": "notepick",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_notepick"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Aeat\u0028\u0029",
+            "name": "eat",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_eat"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Aread\u0028\u0029",
+            "name": "read",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_read"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Agive\u0028\u0029",
+            "name": "give",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_give"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Aendgame\u0028\u0029",
+            "name": "endgame",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_endgame"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Acheat\u0028\u0029",
+            "name": "cheat",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_cheat"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectGameController\u003A\u003Aabout\u0028\u0029",
+            "name": "about",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectGameController.html#method_about"
+        },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",
             "summary": "",
@@ -831,6 +911,111 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Product.html#property_value"
         },                {
+            "fqsen": "\\App\\Item\\Backpack",
+            "name": "Backpack",
+            "summary": "",
+            "url": "classes/App-Item-Backpack.html"
+        },                {
+            "fqsen": "\\App\\Item\\Backpack\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/App-Item-Backpack.html#method_add"
+        },                {
+            "fqsen": "\\App\\Item\\Backpack\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/App-Item-Backpack.html#method_remove"
+        },                {
+            "fqsen": "\\App\\Item\\Backpack\u003A\u003AgetString\u0028\u0029",
+            "name": "getString",
+            "summary": "",
+            "url": "classes/App-Item-Backpack.html#method_getString"
+        },                {
+            "fqsen": "\\App\\Item\\Backpack\u003A\u003AgetItem\u0028\u0029",
+            "name": "getItem",
+            "summary": "",
+            "url": "classes/App-Item-Backpack.html#method_getItem"
+        },                {
+            "fqsen": "\\App\\Item\\Backpack\u003A\u003AgetNumberItems\u0028\u0029",
+            "name": "getNumberItems",
+            "summary": "",
+            "url": "classes/App-Item-Backpack.html#method_getNumberItems"
+        },                {
+            "fqsen": "\\App\\Item\\Backpack\u003A\u003A\u0024bp",
+            "name": "bp",
+            "summary": "",
+            "url": "classes/App-Item-Backpack.html#property_bp"
+        },                {
+            "fqsen": "\\App\\Item\\Item",
+            "name": "Item",
+            "summary": "",
+            "url": "classes/App-Item-Item.html"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003AsetName\u0028\u0029",
+            "name": "setName",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#method_setName"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003AsetApple\u0028\u0029",
+            "name": "setApple",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#method_setApple"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003AsetBook\u0028\u0029",
+            "name": "setBook",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#method_setBook"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003AsetKey\u0028\u0029",
+            "name": "setKey",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#method_setKey"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003Ainfo\u0028\u0029",
+            "name": "info",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#method_info"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003Aeat\u0028\u0029",
+            "name": "eat",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#method_eat"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003Aread\u0028\u0029",
+            "name": "read",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#method_read"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003Agive\u0028\u0029",
+            "name": "give",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#method_give"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#property_name"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003A\u0024readText",
+            "name": "readText",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#property_readText"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003A\u0024eatText",
+            "name": "eatText",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#property_eatText"
+        },                {
+            "fqsen": "\\App\\Item\\Item\u003A\u003A\u0024giveText",
+            "name": "giveText",
+            "summary": "",
+            "url": "classes/App-Item-Item.html#property_giveText"
+        },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
             "summary": "",
@@ -1016,6 +1201,61 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Dice-DiceTest.html#method_testValueDice"
         },                {
+            "fqsen": "\\App\\Item\\BackpackTest",
+            "name": "BackpackTest",
+            "summary": "Test\u0020cases\u0020for\u0020class\u0020Dice.",
+            "url": "classes/App-Item-BackpackTest.html"
+        },                {
+            "fqsen": "\\App\\Item\\BackpackTest\u003A\u003AtestCreateBackpack\u0028\u0029",
+            "name": "testCreateBackpack",
+            "summary": "Construct\u0020object\u0020and\u0020verify\u0020that\u0020the\u0020object\u0020has\u0020the\u0020expected\nproperties,\u0020use\u0020no\u0020arguments.",
+            "url": "classes/App-Item-BackpackTest.html#method_testCreateBackpack"
+        },                {
+            "fqsen": "\\App\\Item\\BackpackTest\u003A\u003AtestAdd\u0028\u0029",
+            "name": "testAdd",
+            "summary": "",
+            "url": "classes/App-Item-BackpackTest.html#method_testAdd"
+        },                {
+            "fqsen": "\\App\\Item\\BackpackTest\u003A\u003AtestRemove\u0028\u0029",
+            "name": "testRemove",
+            "summary": "",
+            "url": "classes/App-Item-BackpackTest.html#method_testRemove"
+        },                {
+            "fqsen": "\\App\\Item\\BackpackTest\u003A\u003AtestGetItem\u0028\u0029",
+            "name": "testGetItem",
+            "summary": "",
+            "url": "classes/App-Item-BackpackTest.html#method_testGetItem"
+        },                {
+            "fqsen": "\\App\\Item\\ItemTest",
+            "name": "ItemTest",
+            "summary": "Test\u0020cases\u0020for\u0020class\u0020Dice.",
+            "url": "classes/App-Item-ItemTest.html"
+        },                {
+            "fqsen": "\\App\\Item\\ItemTest\u003A\u003AtestCreateItem\u0028\u0029",
+            "name": "testCreateItem",
+            "summary": "Construct\u0020object\u0020and\u0020verify\u0020that\u0020the\u0020object\u0020has\u0020the\u0020expected\nproperties,\u0020use\u0020no\u0020arguments.",
+            "url": "classes/App-Item-ItemTest.html#method_testCreateItem"
+        },                {
+            "fqsen": "\\App\\Item\\ItemTest\u003A\u003AtestSetName\u0028\u0029",
+            "name": "testSetName",
+            "summary": "",
+            "url": "classes/App-Item-ItemTest.html#method_testSetName"
+        },                {
+            "fqsen": "\\App\\Item\\ItemTest\u003A\u003AtestSetApple\u0028\u0029",
+            "name": "testSetApple",
+            "summary": "",
+            "url": "classes/App-Item-ItemTest.html#method_testSetApple"
+        },                {
+            "fqsen": "\\App\\Item\\ItemTest\u003A\u003AtestSetBook\u0028\u0029",
+            "name": "testSetBook",
+            "summary": "",
+            "url": "classes/App-Item-ItemTest.html#method_testSetBook"
+        },                {
+            "fqsen": "\\App\\Item\\ItemTest\u003A\u003AtestSetkey\u0028\u0029",
+            "name": "testSetkey",
+            "summary": "",
+            "url": "classes/App-Item-ItemTest.html#method_testSetkey"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -1040,6 +1280,11 @@ Search.appendIndex(
             "name": "Entity",
             "summary": "",
             "url": "namespaces/app-entity.html"
+        },                {
+            "fqsen": "\\App\\Item",
+            "name": "Item",
+            "summary": "",
+            "url": "namespaces/app-item.html"
         },                {
             "fqsen": "\\App",
             "name": "App",
