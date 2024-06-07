@@ -148,6 +148,19 @@ class DeckOfCards extends Card
             if ($card->getSuit()) {
                 $values[] = $card->getPrint()[0];
 
+
+            }
+        }
+        return $values;
+    }
+
+    /** @return array<string> */
+    public function getJsonString(): string
+    {
+        $values = "Deck of cards: ";
+        foreach ($this->deck as $card) {
+            if ($card->getSuit()) {
+                $values = $values . $card->getPrint()[0] . " ";
             }
         }
         return $values;

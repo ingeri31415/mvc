@@ -4,48 +4,59 @@
 
 {% block body %}
     <h1> Json Routes </h1>
-    <h2> api/quotes </h2>
-    <p> Get one of three inspiring quotes </p>
-    <h2> api/deck </h2>
-    <p> you get to see the fully sorted deck</p>
-    <h2> api/deck/shuffle </h2>
-    <p> randomly shuffle your deck</p>
-    <h2> api/deck/draw </h2>
-    <p> draw a card from your deck</p>
-    <h2> api/deck/draw/:number </h2>
-    <p> draw :number amount of cards</p>
+    <h2> Quote </h2>
+    <ul><li>api/quotes - Get one of three inspiring quotes </ul></li>
+    <a href="{{ path('api/quote') }}">Get a quote</a>
 
-
+    <h2>Deck of Cards</h2>
+    <ul>
+    <li> api/deck - you get to see the fully sorted deck</li>
+    
+    <li> api/deck/shuffle - randomly shuffle your deck</li>
+    
+    <li> api/deck/draw - draw a card from your deck</li>
+    
+    <li> api/deck/draw/:number - draw :number amount of cards</li>
+    
+    </ul>
 <form method="post" action="">
     <p>
-        <input type="submit" name="draw" value="Draw a card"
-            onClick="this.form.action='{{ path('api_draw') }}';"
+
+
+        <input type="submit" name="deck" value="Deck" 
+            onClick="this.form.action='{{ path('api_deck') }}';"
         >
-        <input type="submit" name="shuffle" value="shuffle"
+
+        <input type="submit" name="shuffle" value="Shuffle"
             onClick="this.form.action='{{ path('api_shuffle') }}';"
         >
-        <input type="submit" name="deck" value="deck" 
-            onClick="this.form.action='{{ path('api_deck') }}';"
+
+        <input type="submit" name="draw" value="Draw a card"
+            onClick="this.form.action='{{ path('api_draw') }}';"
         >
 
         <input type="submit" name="api_draw_many" value="Draw 5 cards" 
             onClick="this.form.action='{{ path('api_draw_many', {num: 5}) }}';"
         >
 
-
     </p>
 </form>
 
-    <h2> api/game</h2>
-    <p> See the current scores of the game</p>
+    <h2> Card Game </h2>
 
-    <h2> api/library/books </h2>
-    <p> Shows books in the Library</p>
+    <ul><li> api/game - See the current scores of the game</ul></li>
+    
+    <a href="{{ path('api_game') }}">See game score</a>
+
+     <h2> Library </h2>
+
+    <ul>
+    <li> api/library/books - Shows books in the Library</li>
+    <li> api/library/books/{num} - Shows one book in the Library</li>
+    </ul>
+
+
     <a href="{{ path('jsonLibrary') }}">Show books</a>
-
-    <h2> api/library/books/{num} </h2>
-    <p> Shows one book in the Library</p>
-
     <a href="{{ path('libraryOne', {num: '48938729' } ) }}">Show one book</a>
    
 {% endblock %}

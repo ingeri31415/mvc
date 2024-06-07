@@ -2,10 +2,17 @@
 
 namespace App\Controller;
 
+use App\Card\Card;
+use App\Card\CardGraphic;
+use App\Card\DeckOfCards;
+use App\Card\CardHand;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class MeControllerTwig extends AbstractController
 {
@@ -51,6 +58,35 @@ class MeControllerTwig extends AbstractController
         return $this->render('lucky.html.twig', $data);
     }
 
+    #[Route("/session", name: "session")]
+    public function home(
+        SessionInterface $session,
+        Request $request
+    ): Response {
+        $info = $request->getSession();
+        $vars = [];
+        foreach ($info as $inf) {
+            $vars[] = $inf->getJsonString();
+        }
+        $data = [
+            "info" => $vars,
+        ];
+        return $this->render('session.html.twig', $data);
+    }
+
+    #[Route("/session/delete", name: "session_delete")]
+    public function sessionDelete(
+        SessionInterface $session,
+        Request $request
+    ): Response {
+        $session->clear();
+        $this->addFlash(
+            'warning',
+            'You have deleted everything in this session'
+        );
+        return $this->redirectToRoute('session');
+    }
+
     #[Route('/metrics', name: "metrics")]
     public function metrics(): Response
     {
@@ -59,8 +95,9 @@ class MeControllerTwig extends AbstractController
     }
 
     #[Route("/api", name: "api")]
-    public function jsonNumber(): Response
-    {
+    public function jsonNumber(
+        SessionInterface $session
+    ): Response {
 
         $data = [
             '/' => 'page about me',
@@ -74,6 +111,16 @@ class MeControllerTwig extends AbstractController
             'api/game' => 'the game scores'
 
         ];
+
+        $deck = new DeckOfCards();
+        for ($i = 1; $i <= 52; $i++) {
+            $deck->add(new CardGraphic());
+            $card = new Card();
+        }
+
+        $deck->getDeck();
+        $session->set("deck", $deck);
+
 
         //return new JsonResponse($data);
         // $response = new JsonResponse($data);

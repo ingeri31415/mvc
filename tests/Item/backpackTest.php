@@ -17,7 +17,7 @@ class BackpackTest extends TestCase
     {
         $item = new Backpack();
         $this->assertInstanceOf("\App\Item\Backpack", $item);
-        
+
     }
 
     public function testAdd()
@@ -26,8 +26,8 @@ class BackpackTest extends TestCase
         $bp = new Backpack();
         $item->setApple();
         $bp->add($item);
-        $this->assertEquals(1,$bp->getNumberItems());
-        
+        $this->assertEquals(1, $bp->getNumberItems());
+
     }
 
     public function testRemove()
@@ -36,8 +36,8 @@ class BackpackTest extends TestCase
         $bp = new Backpack();
         $item->setApple();
         $bp->remove(0);
-        $this->assertEquals(0,$bp->getNumberItems());
-        
+        $this->assertEquals(0, $bp->getNumberItems());
+
     }
     public function testGetItem()
     {

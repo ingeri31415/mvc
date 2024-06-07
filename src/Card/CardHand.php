@@ -50,7 +50,17 @@ class CardHand extends Card
         return $values;
     }
 
-
+    /** @return array<string> */
+    public function getJsonString(): string
+    {
+        $values = "Card Hand: ";
+        foreach ($this->hand as $card) {
+            if ($card->getSuit()) {
+                $values = $values . $card->getPrint()[0] . " ";
+            }
+        }
+        return $values;
+    }
 
 
 }

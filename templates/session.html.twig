@@ -4,12 +4,19 @@
 
 {% block body %}
 
-<p> This is the session page </p>
+<h1> This is the session page  <a href="{{ path('session_delete') }}">Delete Session</a> </h1>
 
-        {% for card in deck %}
-            {{ card }}
+        {% for inf in info %}
+        <ul>
+        <li> {{ inf }} </li>
+        </ul>
         {% endfor %}
 
+
+{% for flashMessage in app.session.flashbag.get('warning') %}
     
+    {{ flashMessage }} 
+
+{% endfor %}
 
 {% endblock %}

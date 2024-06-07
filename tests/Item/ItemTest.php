@@ -17,7 +17,7 @@ class ItemTest extends TestCase
     {
         $item = new Item();
         $this->assertInstanceOf("\App\Item\Item", $item);
-        
+
     }
 
     public function testSetName()
@@ -26,7 +26,7 @@ class ItemTest extends TestCase
         $name = $item->setName("thename");
         $this->assertEquals("thename", $name);
         $this->assertEquals("thename", $item->info());
-        
+
     }
 
     public function testSetApple()
@@ -44,7 +44,7 @@ class ItemTest extends TestCase
     public function testSetBook()
     {
         $apple = new Item();
-        $apple->setBook("book","info in book");
+        $apple->setBook("book", "info in book");
 
         $this->assertEquals("book", $apple->info());
         $this->assertEquals("info in book", $apple->read());
@@ -66,7 +66,3 @@ class ItemTest extends TestCase
     }
 
 }
-
-
-
-

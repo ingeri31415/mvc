@@ -48,4 +48,12 @@ class Game extends Player
         return $winner;
 
     }
+
+    /** @return array<string> */
+    public function getJsonString(): string
+    {
+        $values = "Game: Bank: " . $this->players[0]->getScore() . ", ";
+        $values = $values . "Player: " . $this->players[1]->getScore();
+        return $values;
+    }
 }
